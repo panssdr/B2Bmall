@@ -180,7 +180,7 @@ export const constantRoutes = [
     }
   },
   {
-    path: "/Login",
+    path: "/Logins",
     name: "Login",
     hidden: true,
     component: Login,

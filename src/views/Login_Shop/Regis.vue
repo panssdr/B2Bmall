@@ -157,7 +157,7 @@ export default {
   },
   methods: {
     goLogin() {
-      this.$router.push("/Login");
+      this.$router.push("/Logins");
     }, // 下一步
     next() {
       if (this.active++ > 1) this.active = 0;
