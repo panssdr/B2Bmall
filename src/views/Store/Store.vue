@@ -2,6 +2,7 @@
     <div class="store">
         <Head></Head>
         <Search></Search>
+        <Nav></Nav>
         <div class="hr w1200"></div>
         <MenuList></MenuList>
         <div class=" store w1200">
@@ -36,9 +37,11 @@ import Head from "../../components/Head";
 import Foot from "../../components/Foot";
 import Search from "../Home/Search";
 import MenuList from "../Product/MenuList";
+import Nav from '@/views/Home/Nav'
 export default {
     name: "Store",
     components: {
+      Nav,
         Head,
         Search,
         Foot,

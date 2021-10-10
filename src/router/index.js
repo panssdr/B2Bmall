@@ -194,7 +194,25 @@ export const constantRoutes = [
     hidden: true,
     component: resolve => require(["../views/Login_Shop/Regis.vue"], resolve),
     meta: {
-      title: "紫色鹭-登陆"
+      title: "紫色鹭-注册"
+    }
+  },
+  {
+    path: "/Demand",
+    name: "AllDemand",
+    hidden: true,
+    component: resolve => require(["../views/Demand/AllDemand.vue"], resolve),
+    meta: {
+      title: "紫色鹭-所有需求信息"
+    }
+  },
+  {
+    path: "/Provide",
+    name: "AllProvide",
+    hidden: true,
+    component: resolve => require(["../views/Provide/AllProvide.vue"], resolve),
+    meta: {
+      title: "紫色鹭-所有供应信息"
     }
   },
   {
