@@ -6,9 +6,9 @@
                 <li @click="go(1)">首  页</li>
                 <li @click="go(2)">需求信息</li>
                 <li @click="go(3)">供应信息</li>
-                <li @click="go(3)">样品超市</li>
+                <li @click="go(4)">样品超市</li>
                 <!-- 样品超市和资讯中心链接还没写 -->
-                <li @click="go(3)">资讯中心</li>
+                <li @click="go(5)">资讯中心</li>
             </ul>
         </div>
     </section>
@@ -20,14 +20,17 @@ export default {
         go(n) {
             switch (n) {
                 case 1:
-                    this.$router.push("/");
+                    this.$router.push("/Home");
                     break;
                 case 2:
-                    this.$router.push("/Product");
+                    this.$router.push("/Demand");
                     break;
                 case 3:
-                    this.$router.push("/Store");
+                    this.$router.push("/Provide");
                     break;
+                case 4:
+                  this.$router.push("/Store");
+                  break;
             }
         },
     },
