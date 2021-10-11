@@ -6,6 +6,7 @@ Vue.use(Router);
 
 /* Layout */
 import Layout from "@/layout";
+// import { resolve } from "core-js/fn/promise";
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -181,7 +182,7 @@ export const constantRoutes = [
   },
   {
     path: "/Logins",
-    name: "Login",
+    name: "Logins",
     hidden: true,
     component: Login,
     meta: {
@@ -234,12 +235,30 @@ export const constantRoutes = [
     }
   },
   {
+    path: "/ShoppingCar",
+    name: "ShoppingCar",
+    hidden: true,
+    component: resolve => require(["../views/Mine/ShoppingCar"], resolve),
+    meta: {
+      title: "紫色鹭-购物车"
+    }
+  },
+  {
     path: "/StoreInfo",
     name: "StoreInfo",
     hidden: true,
     component: resolve => require(["../views/Store/StoreInfo.vue"], resolve),
     meta: {
       title: "紫色鹭-店铺"
+    }
+  },
+  {
+    path: "/ProductDetail",
+    name: "ProductDetail",
+    component: resolve =>
+      require(["../views/ProductDetail/ProductDetail.vue"], resolve),
+    meta: {
+      title: "紫色鹭-商品详情页"
     }
   },
   {
