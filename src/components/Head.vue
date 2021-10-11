@@ -39,7 +39,7 @@ export default {
             switch (n) {
                 case 1:
                     if(this.$store.state.username == ''){
-                        this.$router.push("/Login");
+                        this.$router.push("/Logins");
                     }else{
                         this.$router.push("/Mine");
                     }

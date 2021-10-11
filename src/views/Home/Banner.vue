@@ -83,10 +83,12 @@ export default {
         console.log(r.data.msg);
       }
     });
-    Axios.get("https://zsl.zmzhi.com/api/carousel/getCarouselList?cate_id=1").then(r => {
+    Axios.get(
+      "https://zsl.zmzhi.com/api/carousel/getCarouselList?cate_id=1"
+    ).then(r => {
       if (r.data.code == 0) {
         this.bannerList = r.data.data;
-        console.log(this.bannerList,"123");
+        console.log(this.bannerList, "123");
       } else {
         console.log(r.data.msg);
       }
@@ -99,6 +101,16 @@ export default {
     },
     userNews(n) {
       this.act = n;
+    },
+    go(n) {
+      switch (n) {
+        case 1:
+          this.$router.push("/Logins");
+          break;
+        case 2:
+          this.$router.push("/Regis");
+          break;
+      }
     }
   }
 };
