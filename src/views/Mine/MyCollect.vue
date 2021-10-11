@@ -4,7 +4,7 @@
         <div class="collect-title">
             <div class="w1200">
                 <p>
-                    <span @click="goback"><i class="el-icon-back"></i>个人中心</span>
+                    <span @click="goback"><i class="el-icon-back"></i>首页</span>
                     <span @click='change(1)' :class="act==1?'act':''">产品收藏</span>
                     <span @click='change(2)' :class="act==2?'act':''">店铺收藏</span>
                 </p>
@@ -49,7 +49,7 @@ export default {
     },
     methods: {
         goback() {
-            this.$router.push("/Mine");
+            this.$router.push("/Home");
         },
         change(n){
             if(n==1){

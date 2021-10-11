@@ -238,7 +238,7 @@ export const constantRoutes = [
     path: "/ShoppingCar",
     name: "ShoppingCar",
     hidden: true,
-    component: resolve => require(["../views/Mine/ShoppingCar"], resolve),
+    component: resolve => require(["../views/Mine/Mine.vue"], resolve),
     meta: {
       title: "紫色鹭-购物车"
     }
@@ -278,13 +278,6 @@ export const constantRoutes = [
     meta: {
       title: "紫色鹭-个人中心"
     },
-    children: [
-      {
-        path: "MyCollect",
-        name: "MyCollect",
-        component: resolve => require(["../views/Mine/MyCollect.vue"], resolve)
-      }
-    ]
   }
 ];
 

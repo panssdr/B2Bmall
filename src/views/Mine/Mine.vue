@@ -2,7 +2,7 @@
     <div class="product">
         <Head></Head>
         <div class="m-title">
-            <h4 class="w1200">我的个人中心</h4>
+            <h4 class="w1200">购物车</h4>
         </div>
         <div class="main flex-b  w1200 ">
             <el-card class="box-card" shadow="never">
@@ -10,18 +10,21 @@
                     <h3>全部功能</h3>
                 </div>
                 <ul class="text item">
+                   <li :class="act == 4 ? 'font-b' : ''" @click="go(4)">
+                        我的购物车 <i class="el-icon-arrow-right"></i>
+                    </li>
                     <li :class="act == 1 ? 'font-b' : ''" @click="go(1)">
                         我的订单 <i class="el-icon-arrow-right"></i>
                     </li>
-                    <li :class="act == 2 ? 'font-b' : ''" @click="go(2)">
+                    <!-- <li :class="act == 2 ? 'font-b' : ''" @click="go(2)">
                         地址管理 <i class="el-icon-arrow-right"></i>
                     </li>
                     <li :class="act == 3 ? 'font-b' : ''" @click="go(3)">
                         我的收藏 <i class="el-icon-arrow-right"></i>
-                    </li>
-                    <li :class="act == 4 ? 'font-b' : ''" @click="go(4)">
+                    </li> -->
+                    <!-- <li :class="act == 4 ? 'font-b' : ''" @click="go(4)">
                         我的购物车 <i class="el-icon-arrow-right"></i>
-                    </li>
+                    </li> -->
                     <!-- <li :class="act == 5 ? 'font-b' : ''" @click="go(5)">
                         消息管理 <i class="el-icon-arrow-right"></i>
                     </li> -->
@@ -53,8 +56,8 @@ export default {
     },
     data() {
         return {
-            act: 1,
-            curentView:'MyOrder'
+            act: 4,
+            curentView:'ShoppingCar'
         };
     },
     methods: {

@@ -48,7 +48,7 @@ export default {
                     this.$router.push("/Regis");
                     break;
                 case 3:
-                    this.$router.push("/");
+                    this.$router.push("/Home");
                     break;
                 case 4:
                     this.$router.push("/ShoppingCar");
