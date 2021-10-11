@@ -3,7 +3,6 @@
     <Head></Head>
     <Search></Search>
     <Nav></Nav>
-    <div class="hr w1200"></div>
     <div class="w1200" style="margin-top: 20px;margin-bottom: 20px">
       <el-tag size="big" style="margin-top: 10px">所有热销产品</el-tag>
       <Provide></Provide>

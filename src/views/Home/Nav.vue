@@ -3,12 +3,12 @@
     <div class="nav flex-l">
       <span>全部商品分类</span>
       <ul class="flex-l">
-        <li @click="go(1)">首 页</li>
-        <li @click="go(2)">需求信息</li>
-        <li @click="go(3)">供应信息</li>
-        <li @click="go(4)">样品超市</li>
+        <li @click="go(1)" :class="{isFocus:this.$route.path=='/Home'}">首 页</li>
+        <li @click="go(2)" :class="{isFocus:this.$route.path=='/Demand'}">需求信息</li>
+        <li @click="go(3)" :class="{isFocus:this.$route.path=='/Provide'}">供应信息</li>
+        <li @click="go(4)" :class="{isFocus:this.$route.path=='/Store'}">样品超市</li>
         <!-- 样品超市和资讯中心链接还没写 -->
-        <li @click="go(5)">找产品</li>
+        <li @click="go(5)" :class="{isFocus:this.$route.path=='/Product'}">找产品</li>
       </ul>
     </div>
   </section>
@@ -20,6 +20,7 @@ export default {
     go(n) {
       switch (n) {
         case 1:
+
           this.$router.push("/Home");
           break;
         case 2:
@@ -36,6 +37,9 @@ export default {
           break;
       }
     }
+  },
+  computed:{
+
   }
 };
 </script>
@@ -57,6 +61,12 @@ export default {
       background-color: #4892ff;
       cursor: pointer;
     }
+    .isFocus{
+      background-color:red;
+    }
   }
 }
+ .isFocus{
+      background-color:red;
+    }
 </style>

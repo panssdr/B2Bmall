@@ -3,7 +3,7 @@
     <Head></Head>
     <Search></Search>
     <Nav></Nav>
-    <div class="hr w1200"></div>
+
     <div class="w1200" style="margin-top: 20px;margin-bottom: 20px">
       <el-tag type="warning" size="big" style="margin-top: 10px">所有需求产品</el-tag>
       <Demand></Demand>

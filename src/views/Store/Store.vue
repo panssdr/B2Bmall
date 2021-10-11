@@ -3,7 +3,7 @@
         <Head></Head>
         <Search></Search>
         <Nav></Nav>
-        <div class="hr w1200"></div>
+
         <MenuList></MenuList>
         <div class=" store w1200">
             <ul>
