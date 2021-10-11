@@ -21,7 +21,7 @@
         <div class="w1200">
         <div>
           <el-tag size="big" style="margin-top: 10px">热销产品</el-tag>
-          <el-tag type="success" size="big" style="margin-top: 10px;float: right;cursor: pointer" @click="MoreDemand">查看更多>></el-tag>
+          <el-tag type="success" size="big" style="margin-top: 10px;float: right;cursor: pointer" @click="MoreProvide">查看更多>></el-tag>
         </div>
         <el-divider></el-divider>
           <div style="margin-bottom: 20px">
@@ -68,8 +68,12 @@ export default {
     },
     methods: {
       MoreDemand(){
-        console.log("查看更多需求")
+        // console.log("查看更多需求")
+        this.$router.push("/Demand")
       },
+      MoreProvide(){
+        this.$router.push("/Provide")
+      }
     },
 };
 </script>
