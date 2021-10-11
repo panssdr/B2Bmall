@@ -2,9 +2,7 @@
     <div class="product">
         <Head></Head>
         <Search></Search>
-
-           <Nav></Nav>
-
+        <div class="hr w1200"></div>
         <MenuList></MenuList>
         <ProList></ProList>
         <Foot></Foot>
@@ -16,7 +14,6 @@ import Foot from "@/components/Foot.vue";
 import Search from "@/views/Home/Search.vue";
 import MenuList from "../Product/MenuList.vue";
 import ProList from "../Product/ProList.vue";
-import Nav from "@/views/Home/Nav.vue"
 export default {
     name: "Product",
     components:{
@@ -25,7 +22,6 @@ export default {
         Search,
         MenuList,
         ProList,
-        Nav
     },
     data() {
         return {

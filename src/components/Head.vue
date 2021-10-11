@@ -57,7 +57,7 @@ export default {
                     this.$router.push("/MyCollect");
                     break;
                 case 6:
-                    this.$router.push("/Mine");
+                    this.$router.push("/UserCenter");
                     break;
             }
         },

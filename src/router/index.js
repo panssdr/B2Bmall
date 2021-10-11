@@ -190,6 +190,15 @@ export const constantRoutes = [
     }
   },
   {
+    path: "/UserCenter",
+    name: "UserCenter",
+    hidden: true,
+    component: resolve => require(["../views/UserCenter/UserCenter.vue"], resolve),
+    meta: {
+      title: "紫色鹭-用户中心"
+    }
+  },
+  {
     path: "/Regis",
     name: "Regis",
     hidden: true,
