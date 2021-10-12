@@ -6,6 +6,7 @@ Vue.use(Router);
 
 /* Layout */
 import Layout from "@/layout";
+import BuyerInfo from '@/views/UserCenter/Buyer/BuyerInfo'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -192,11 +193,20 @@ export const constantRoutes = [
   {
     path: "/UserCenter",
     name: "UserCenter",
+    redirect: "/UserCenter/BuyerInfo",
     hidden: true,
     component: resolve => require(["../views/UserCenter/UserCenter.vue"], resolve),
     meta: {
       title: "紫色鹭-用户中心"
-    }
+    },
+    children: [
+      {
+        path: "BuyerInfo",
+        component:BuyerInfo,
+        name: "BuyerInfo",
+        meta: { title: "紫色鹭-买家基本信息" }
+      },
+      ]
   },
   {
     path: "/Regis",

@@ -5,7 +5,7 @@
       <el-col :span="4"><div class="grid-content bg-purple">
         <Side></Side>
       </div></el-col>
-      <el-col :span="20"><div class="grid-content bg-purple-light">内容</div></el-col>
+      <el-col :span="20"><div class="grid-content bg-purple-light"><router-view></router-view></div></el-col>
     </el-row>
   </div>
 </template>

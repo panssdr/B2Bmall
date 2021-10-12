@@ -4,6 +4,7 @@
     class="el-menu-vertical-demo"
     @open="handleOpen"
     @close="handleClose"
+    unique-opened="true"
     style="height: 100vh">
     <el-submenu index="1">
       <template slot="title">
@@ -78,8 +79,8 @@
         <span>基本信息</span>
       </template>
       <el-menu-item-group>
-        <el-menu-item index="8-1">基本信息维护</el-menu-item>
-        <el-menu-item index="8-2">认证资料</el-menu-item>
+        <el-menu-item index="8-1" @click="$router.push('/UserCenter/BuyerInfo')">基本信息维护</el-menu-item>
+        <el-menu-item index="8-2" @click="$router.push('/UserCenter')">认证资料</el-menu-item>
         <el-menu-item index="8-3">收货地址</el-menu-item>
         <el-menu-item index="8-4">修改密码</el-menu-item>
       </el-menu-item-group>
