@@ -7,6 +7,11 @@ Vue.use(Router);
 /* Layout */
 import Layout from "@/layout";
 import BuyerInfo from '@/views/UserCenter/Buyer/BuyerInfo'
+import AccreditationData from '@/views/UserCenter/Buyer/AccreditationData'
+import Address from '@/views/UserCenter/Buyer/Address'
+import ChangePwd from '@/views/UserCenter/Buyer/ChangePwd'
+import MyDemand from '@/views/UserCenter/Buyer/MyDemand'
+import Quote from '@/views/UserCenter/Buyer/Quote'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -201,10 +206,40 @@ export const constantRoutes = [
     },
     children: [
       {
+        path: "MyDemand",
+        component:MyDemand,
+        name: "MyDemand",
+        meta: { title: "紫色鹭-我的需求列表" }
+      },
+      {
+        path: "Quote",
+        component:Quote,
+        name: "Quote",
+        meta: { title: "紫色鹭-报价列表" }
+      },
+      {
         path: "BuyerInfo",
         component:BuyerInfo,
         name: "BuyerInfo",
         meta: { title: "紫色鹭-买家基本信息" }
+      },
+      {
+        path: "AD",
+        component:AccreditationData,
+        name: "AccreditationData",
+        meta: { title: "紫色鹭-认证资料" }
+      },
+      {
+        path: "Address",
+        component:Address,
+        name: "Address",
+        meta: { title: "紫色鹭-收货地址" }
+      },
+      {
+        path: "ChangePwd",
+        component:ChangePwd,
+        name: "ChangePwd",
+        meta: { title: "紫色鹭-修改密码" }
       },
       ]
   },

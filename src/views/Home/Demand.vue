@@ -65,20 +65,7 @@ export default {
   name: 'Demand',
   data() {
     return {
-      tableData: [
-        {
-
-        },
-        {
-
-        },
-        {
-
-        },
-        {
-
-        },
-      ],
+      tableData: [{}],
       dialogFormVisible: false,
       form: {
         providePrice: '',

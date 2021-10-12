@@ -9,24 +9,32 @@
         <el-form-item label="账号" label-width="100px" class="item">
           <el-input v-model="form.username" disabled></el-input>
         </el-form-item>
+        <hr>
+        <br>
         <el-form-item label="姓名" label-width="100px" prop="name" class="item">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="手机" label-width="100px" prop="tel" class="item">
           <el-input v-model="form.tel"></el-input>
         </el-form-item>
+        <hr>
+        <br>
         <el-form-item label="QQ号" label-width="100px" class="item">
           <el-input v-model="form.qq"></el-input>
         </el-form-item>
         <el-form-item label="公司名称" label-width="100px" prop="company" class="item">
           <el-input v-model="form.company"></el-input>
         </el-form-item>
+        <hr>
+        <br>
         <el-form-item label="公司地址" label-width="100px" prop="address" class="item">
           <el-input v-model="form.address"></el-input>
         </el-form-item>
         <el-form-item label="公司电话" label-width="100px" prop="companyTel" class="item">
           <el-input v-model="form.companyTel"></el-input>
         </el-form-item>
+        <hr>
+        <br>
         <el-form-item label="客户类型" label-width="100px" class="item">
           <el-input v-model="form.type" disabled></el-input>
         </el-form-item>
@@ -45,7 +53,7 @@
 
 <script>
 import Head from '@/components/Head'
-import BuyerInfoHead from '@/views/UserCenter/Buyer/Head'
+import BuyerInfoHead from '@/views/UserCenter/Buyer/BuyerInfoHead'
 export default {
   name: 'BuyerInfo',
   components: { BuyerInfoHead, Head },

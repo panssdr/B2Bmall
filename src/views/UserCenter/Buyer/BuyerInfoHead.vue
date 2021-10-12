@@ -1,6 +1,6 @@
 <template>
     <header class="head">
-        <div style="width:50%;float: right">
+        <div style="width:30%;float: right">
             <div class="head-right">
                 <span class="hand" @click="go(3)">基本信息维护</span>
                 <span class="hand" @click="go(4)">认证资料</span>
@@ -37,13 +37,13 @@ export default {
                     this.$router.push("/UserCenter/BuyerInfo");
                     break;
                 case 4:
-                    this.$router.push("/ShoppingCar");
+                    this.$router.push("/UserCenter/AD");
                     break;
                 case 5:
-                    this.$router.push("/MyCollect");
+                    this.$router.push("/UserCenter/Address");
                     break;
                 case 6:
-                    this.$router.push("/UserCenter");
+                    this.$router.push("/UserCenter/ChangePwd");
                     break;
             }
         },
