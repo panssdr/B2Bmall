@@ -23,9 +23,9 @@
         <span>我的订单</span>
       </template>
       <el-menu-item-group>
-        <el-menu-item index="2-1">全部订单列表</el-menu-item>
-        <el-menu-item index="2-2">全部合同列表</el-menu-item>
-        <el-menu-item index="2-3">支付定金</el-menu-item>
+        <el-menu-item index="2-1" @click="$router.push('/UserCenter/MyOrder')">全部订单列表</el-menu-item>
+        <el-menu-item index="2-2" @click="$router.push('/UserCenter/Contract')">全部合同列表</el-menu-item>
+        <el-menu-item index="2-3" @click="$router.push('/UserCenter/PayDeposit')">支付定金</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
     <el-submenu index="3">

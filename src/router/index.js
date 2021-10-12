@@ -12,6 +12,9 @@ import Address from '@/views/UserCenter/Buyer/Address'
 import ChangePwd from '@/views/UserCenter/Buyer/ChangePwd'
 import MyDemand from '@/views/UserCenter/Buyer/MyDemand'
 import Quote from '@/views/UserCenter/Buyer/Quote'
+import MyOrder from '@/views/UserCenter/Buyer/MyOrder'
+import Contract from '@/views/UserCenter/Buyer/Contract'
+import PayDeposit from '@/views/UserCenter/Buyer/PayDeposit'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -216,6 +219,24 @@ export const constantRoutes = [
         component:Quote,
         name: "Quote",
         meta: { title: "紫色鹭-报价列表" }
+      },
+      {
+        path: "MyOrder",
+        component:MyOrder,
+        name: "MyOrder",
+        meta: { title: "紫色鹭-我的订单" }
+      },
+      {
+        path: "Contract",
+        component:Contract,
+        name: "Contract",
+        meta: { title: "紫色鹭-合同列表" }
+      },
+      {
+        path: "PayDeposit",
+        component:PayDeposit,
+        name: "PayDeposit",
+        meta: { title: "紫色鹭-支付定金" }
       },
       {
         path: "BuyerInfo",
