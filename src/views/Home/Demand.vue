@@ -1,16 +1,16 @@
 <template>
   <div class="demand">
-    <el-table :data="tableData" stripe style="width: 100%">
-      <el-table-column prop="product" label="商品名称" width="180"> </el-table-column>
+    <el-table :data="demandList" stripe style="width: 100%">
+      <el-table-column prop="goodsName" label="商品名称" width="180"> </el-table-column>
       <el-table-column prop="type" label="类型" width="180"> </el-table-column>
-      <el-table-column prop="specification" label="产品规格"> </el-table-column>
+      <el-table-column prop="specifications" label="产品规格"> </el-table-column>
       <el-table-column prop="expectPrice" label="期望价格"> </el-table-column>
-      <el-table-column prop="number" label="数量"> </el-table-column>
+      <el-table-column prop="amount" label="数量"> </el-table-column>
       <el-table-column prop="createDate" label="创建日期"> </el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template #default="scope">
-          <el-button @click="quote(scope.row)" type="text" size="small">我要报价</el-button>
-<!--          <el-button @click="dialogFormVisible = true" type="text" size="small">我要报价</el-button>-->
+               <el-button @click="quote(scope.row)" type="text" size="small">我要报价</el-button>
+              <!--          <el-button @click="dialogFormVisible = true" type="text" size="small">我要报价</el-button>--></td>
         </template>
       </el-table-column>
     </el-table>
@@ -61,10 +61,12 @@
 </template>
 
 <script>
+import axios from "axios"
 export default {
   name: 'Demand',
   data() {
     return {
+      demandList:[],
       tableData: [{}],
       dialogFormVisible: false,
       form: {
@@ -106,6 +108,12 @@ export default {
         }
       });
     },
+  },
+  mounted(){
+    axios.get("/api/demand/all").then(res=> {
+      this.demandList=res.data
+      // console.log(demandList);
+      })
   },
 }
 </script>
