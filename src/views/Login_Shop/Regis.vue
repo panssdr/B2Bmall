@@ -4,6 +4,7 @@
       <img src="../../assets/img/index_search_logo.png" alt="" />
       <h2>欢迎注册</h2>
     </header>
+
     <el-card shadow="hover" class="body">
       <div slot="header" class="clearfix">
         <el-button type="text">
@@ -33,10 +34,17 @@
                 autocomplete="off"
               ></el-input>
             </el-form-item>
-            <el-form-item  label="验证码" prop="code">
-              <div class="el-captcha"> <el-input  style="width:150px"  type="code" v-model="ruleForm.code" autocomplete="off">
-              </el-input> <img src="/api/captcha" onclick="this.src='/api/captcha?d='+new Date()*1" />看不清</div>
-
+            <el-form-item label="验证码" prop="code">
+              <div class="el-captcha">
+                <el-input
+                  style="width:150px"
+                  type="code"
+                  v-model="ruleForm.code"
+                  autocomplete="off"
+                >
+                </el-input>
+                <div id="v_container"></div>
+              </div>
             </el-form-item>
 
             <el-form-item label="">
@@ -52,16 +60,17 @@
             </el-form-item>
           </el-form>
           <el-button
-          type="primary"
-          style="margin: 0 auto;width:480px;"
-          @click="next"
-          class="w100p"
-          >下一步</el-button
-        >
+            type="primary"
+            style="margin: 0 auto;width:480px;"
+            @click="next"
+            class="w100p"
+            >下一步</el-button
+          >
         </div>
+
         <div v-if="active == 1" class="regis-box">
           <el-form
-           style="width:400px"
+            style="width:400px"
             :model="ruleForm"
             status-icon
             :rules="rules"
@@ -91,17 +100,18 @@
             </el-form-item>
           </el-form>
         </div>
-        <div v-if="active == 2" class="regis-box">
-          <h2>恭喜你完成注册!!</h2>
-        </div>
 
+        <div v-if="active == 2" class="regis-box">
+          <h2>已提交注册审核!!</h2>
+        </div>
       </div>
     </el-card>
   </div>
 </template>
 <script>
 import axios from "axios";
-
+import request from "@/api/request"
+import { GVerify } from "@/utils/verifyCode";
 export default {
   name: "Regis",
   data() {
@@ -152,6 +162,11 @@ export default {
         code: [{ validator: checkCode, trigger: "blur" }],
         pass: [{ validator: validatePass, trigger: "blur" }],
         checkPass: [{ validator: validatePass2, trigger: "blur" }]
+      },
+      verifyCode: null,
+      customer: {
+        CoTelephone: "",
+        PassWord: ""
       }
     };
   },
@@ -160,13 +175,42 @@ export default {
       this.$router.push("/Logins");
     }, // 下一步
     next() {
-      if (this.active++ > 1) this.active = 0;
+      var that = this;
+      // 获取验证码
+      var verifyCode = this.ruleForm.code;
+      var verifyFlag = this.verifyCode.validate(verifyCode);
+      if (!verifyFlag) {
+        that.$notify.error({
+          title: "系统提示",
+          message: "验证码输入错误"
+        });
+        return;
+      } else {
+        if (this.ruleForm.agree == true) {
+
+          this.customer.CoTelephone = this.ruleForm.tel;
+          if (this.active++ > 1) this.active = 0;
+        } else {
+          alert("请阅读改平台服务条例");
+        }
+      }
     },
     // 提交页面
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          alert("submit!");
+
+          this.customer.PassWord = this.ruleForm.pass;
+
+         axios.post("/api/customer/register",
+         {
+           "cotelephone":this.customer.CoTelephone,
+           "password":this.customer.PassWord
+         }
+        ).then(res => console.log(res)).catch(res =>console.log("0"));
+
+
+          this.active = 2;
         } else {
           console.log("error submit!!");
           return false;
@@ -176,11 +220,15 @@ export default {
     // 重置
     resetForm(formName) {
       this.$refs[formName].resetFields();
-    },
-    // 获取验证码
-    Catpcha() {
-      axios.get("/api/captcha").then(res => res.data)
     }
+    // 获取后台验证码
+    // Catpcha() {
+    //   axios.get("/api/captcha").then(res => res.data);
+    // }
+  },
+  mounted() {
+
+    this.verifyCode = new GVerify("v_container");
   }
 };
 </script>
@@ -204,7 +252,6 @@ header {
 .body {
   width: 80%;
   margin: 0 auto;
-
 }
 .regis-main {
   height: 100%;
@@ -219,16 +266,19 @@ header {
     }
   }
 }
-.el-captcha{
+.el-captcha {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  img{
+
+  img {
     height: 40px;
 
-  flex: 1;
+    flex: 1;
   }
 }
+
+#v_container {
+  margin-top: 10px;
+}
 </style>
-
-
