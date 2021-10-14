@@ -4,7 +4,7 @@
       <el-table-column prop="goodsName" label="商品名称" width="180"> </el-table-column>
       <el-table-column prop="type" label="类型" width="180"> </el-table-column>
       <el-table-column prop="specifications" label="产品规格"> </el-table-column>
-      <el-table-column prop="expectPrice" label="期望价格"> </el-table-column>
+      <el-table-column prop="priceAndAmount" label="期望价格"> </el-table-column>
       <el-table-column prop="amount" label="数量"> </el-table-column>
       <el-table-column prop="createDate" label="创建日期"> </el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
@@ -61,13 +61,13 @@
 </template>
 
 <script>
-import axios from "axios"
 export default {
   name: 'Demand',
+  props:['demandList'],
   data() {
     return {
-      demandList:[],
-      tableData: [{}],
+
+      // tableData: [{}],
       dialogFormVisible: false,
       form: {
         providePrice: '',
@@ -109,12 +109,7 @@ export default {
       });
     },
   },
-  mounted(){
-    axios.get("/api/demand/all").then(res=> {
-      this.demandList=res.data
-      // console.log(demandList);
-      })
-  },
+
 }
 </script>
 

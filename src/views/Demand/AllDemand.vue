@@ -6,15 +6,15 @@
 
     <div class="w1200" style="margin-top: 20px;margin-bottom: 20px">
       <el-tag type="warning" size="big" style="margin-top: 10px">所有需求产品</el-tag>
-      <Demand></Demand>
+      <Demand :demandList="demandList"></Demand>
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="currentPage1"
         :page-sizes="[10, 20]"
-        :page-size="100"
+        :page-size="5"
         layout="total, sizes, prev, pager, next, jumper"
-        :total="100"
+        :total="demandList"
       >
       </el-pagination>
     </div>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import axios from "axios"
 import Demand from '@/views/Home/Demand'
 import Head from '@/components/Head'
 import Search from '@/views/Home/Search'
@@ -33,10 +34,8 @@ export default {
   components: { Nav, Foot, Search, Head, Demand },
   data() {
     return {
-      currentPage1: 5,
-      currentPage2: 5,
-      currentPage3: 5,
-      currentPage4: 4,
+      demandList:[],
+      currentPage: 1,
     }
   },
   methods: {
@@ -46,6 +45,12 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`)
     },
+  },
+   mounted(){
+    axios.get("/api/demand/all").then(res=> {
+      this.demandList=res.data
+      // console.log(demandList);
+      })
   },
 }
 </script>

@@ -5,7 +5,7 @@
     <Nav></Nav>
     <div class="w1200" style="margin-top: 20px;margin-bottom: 20px">
       <el-tag size="big" style="margin-top: 10px">所有热销产品</el-tag>
-      <Provide></Provide>
+      <Provide :supplyList="supplyList"></Provide>
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import axios from "axios"
 
 import Head from '@/components/Head'
 import Search from '@/views/Home/Search'
@@ -33,6 +34,7 @@ export default {
   components: { Provide, Nav, Foot, Search, Head },
   data() {
     return {
+      supplyList:[],
       currentPage1: 5,
       currentPage2: 5,
       currentPage3: 5,
@@ -46,6 +48,12 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`)
     },
+  },
+   mounted(){
+    axios.get("/api/supply/all").then(res=> {
+      this.supplyList=res.data
+      console.log(this.supplyList);
+      })
   },
 }
 </script>

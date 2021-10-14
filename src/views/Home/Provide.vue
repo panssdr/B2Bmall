@@ -1,13 +1,13 @@
 <template>
   <div>
-    <el-table :data="tableData" stripe style="width: 100%">
-      <el-table-column prop="product" label="商品名称" width="180"> </el-table-column>
+    <el-table :data="supplyList" stripe style="width: 100%">
+      <el-table-column prop="goodsName" label="商品名称" width="180"> </el-table-column>
       <el-table-column prop="type" label="类型" width="180"> </el-table-column>
-      <el-table-column prop="specification" label="产品规格"> </el-table-column>
-      <el-table-column prop="Price" label="单价"> </el-table-column>
+      <el-table-column prop="specifications" label="产品规格"> </el-table-column>
+      <el-table-column prop="priceAndAmount" label="单价"> </el-table-column>
       <el-table-column prop="isExist" label="有无现货"> </el-table-column>
-      <el-table-column prop="limit" label="最小起订量"> </el-table-column>
-      <el-table-column prop="company" label="供货单位"> </el-table-column>
+      <el-table-column prop="moq" label="最小起订量"> </el-table-column>
+      <el-table-column prop="supplyCompany" label="供货单位"> </el-table-column>
       <el-table-column prop="createDate" label="创建日期"> </el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template #default="scope">
@@ -63,30 +63,10 @@
 <script>
 export default {
   name: 'Provide',
+  props:["supplyList"],
   data() {
     return {
-      tableData: [
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
-        },
-        {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄',
-        },
-        {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄',
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-        },
-      ],
+
       dialogFormVisible: false,
       form: {
         number:'',
@@ -126,6 +106,7 @@ export default {
       });
     },
   },
+
 }
 </script>
 
