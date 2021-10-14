@@ -67,7 +67,19 @@ export const constantRoutes = [
     //   }
     // // ]
   },
+  { path:"/dashboard",
+    component:Layout,
+    redirect:"/dashboard/index",
+    children:[
+      {
+        path:"index",
+        name:"index",
+        component:()=>import("@/views/dashboard/index.vue"),
+        meta:{title:'Dashboard',icon:"dashboard"},
+      }
+    ]
 
+  },
   {
     path: "/example",
 
@@ -330,6 +342,7 @@ export const constantRoutes = [
   {
     path: "/ProductDetail",
     name: "ProductDetail",
+    hidden: true,
     component: resolve =>
       require(["../views/ProductDetail/ProductDetail.vue"], resolve),
     meta: {
