@@ -15,6 +15,7 @@ import Quote from '@/views/UserCenter/Buyer/Quote'
 import MyOrder from '@/views/UserCenter/Buyer/MyOrder'
 import Contract from '@/views/UserCenter/Buyer/Contract'
 import PayDeposit from '@/views/UserCenter/Buyer/PayDeposit'
+import Admin from '@/views/admin/Admin'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -67,17 +68,17 @@ export const constantRoutes = [
     //   }
     // // ]
   },
-  { path:"/dashboard",
-    component:Layout,
-    redirect:"/dashboard/index",
-    children:[
-      {
-        path:"index",
-        name:"index",
-        component:()=>import("@/views/dashboard/index.vue"),
-        meta:{title:'Dashboard',icon:"dashboard"},
-      }
-    ]
+  { path:"/admin",
+    component:Admin,
+    // redirect:"/dashboard/index",
+    // children:[
+    //   {
+    //     path:"index",
+    //     name:"index",
+    //     component:()=>import("@/views/dashboard/index.vue"),
+    //     meta:{title:'Dashboard',icon:"dashboard"},
+    //   }
+    // ]
 
   },
   {
