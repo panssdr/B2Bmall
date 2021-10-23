@@ -117,9 +117,14 @@ export default {
   name: "Regis",
   data() {
     var checkTel = (rule, value, callback) => {
+
+
       if (value === "") {
         callback(new Error("请输入手机号"));
-      } else {
+      } else if(!(/^[1][3,4,5,7,8,9][0-9]{9}$/.test(value))){
+         callback(new Error("手机格式错误"));
+      }
+      else {
         callback();
       }
     };
@@ -133,7 +138,10 @@ export default {
     var validatePass = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请输入密码"));
-      } else {
+      }else if(value.length<6){
+         callback(new Error("密码不得少于6位数"));
+      }
+       else {
         if (this.ruleForm.checkPass !== "") {
           this.$refs.ruleForm.validateField("checkPass");
         }
@@ -200,26 +208,19 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-
           this.customer.PassWord = this.ruleForm.pass;
-
-
-
         //  axios({
         //     method:"post",
         //     headers:{"Content-Type":"application/json;charset=UTF-8"},
         //     url:"/api/customer/register",
         //     data: this.$qs.stringify(datas),
         //     }).then(res => console.log(res)).catch(res =>console.log(res));
-
         request.post("/api/customer/register",{
           "CoTelephone": this.customer.CoTelephone,
           "PassWord": this.customer.PassWord
         }).then(res=>{
           console.log(res);
         })
-
-
           this.active = 2;
         } else {
           console.log("error submit!!");
