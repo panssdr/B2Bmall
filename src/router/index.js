@@ -17,6 +17,7 @@ import Contract from '@/views/UserCenter/Buyer/Contract'
 import PayDeposit from '@/views/UserCenter/Buyer/PayDeposit'
 import Admin from '@/views/admin/Admin'
 import Customer from '@/views/admin/Customer'
+import RegisterCustomer from '@/views/admin/RegisterCustomer'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -82,11 +83,17 @@ export const constantRoutes = [
     // ]
     children: [
       {
+        path: "reCus",
+        name: "RegisterCustomer",
+        component: RegisterCustomer,
+        meta: { title: "注册客户"}
+      },
+      {
         path: "customer",
         name: "Customer",
         component: Customer,
         meta: { title: "客户管理"}
-      }
+      },
     ]
   },
   {
