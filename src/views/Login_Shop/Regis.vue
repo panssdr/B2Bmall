@@ -110,6 +110,7 @@
 </template>
 <script>
 import axios from "axios";
+
 import request from "@/api/request"
 import { GVerify } from "@/utils/verifyCode";
 export default {
@@ -202,12 +203,21 @@ export default {
 
           this.customer.PassWord = this.ruleForm.pass;
 
-         axios.post("/api/customer/register",
-         {
-           "cotelephone":this.customer.CoTelephone,
-           "password":this.customer.PassWord
-         }
-        ).then(res => console.log(res)).catch(res =>console.log("0"));
+
+
+        //  axios({
+        //     method:"post",
+        //     headers:{"Content-Type":"application/json;charset=UTF-8"},
+        //     url:"/api/customer/register",
+        //     data: this.$qs.stringify(datas),
+        //     }).then(res => console.log(res)).catch(res =>console.log(res));
+
+        request.post("/api/customer/register",{
+          "CoTelephone": this.customer.CoTelephone,
+          "PassWord": this.customer.PassWord
+        }).then(res=>{
+          console.log(res);
+        })
 
 
           this.active = 2;
