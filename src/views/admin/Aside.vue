@@ -13,7 +13,7 @@
                   <span>客户信息管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="1-1">客户(买家)管理</el-menu-item>
+                  <el-menu-item index="1-1" @click="$router.push('/admin/Customer')">客户(买家)管理</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="2">

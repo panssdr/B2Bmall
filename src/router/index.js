@@ -16,6 +16,7 @@ import MyOrder from '@/views/UserCenter/Buyer/MyOrder'
 import Contract from '@/views/UserCenter/Buyer/Contract'
 import PayDeposit from '@/views/UserCenter/Buyer/PayDeposit'
 import Admin from '@/views/admin/Admin'
+import Customer from '@/views/admin/Customer'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -79,7 +80,14 @@ export const constantRoutes = [
     //     meta:{title:'Dashboard',icon:"dashboard"},
     //   }
     // ]
-
+    children: [
+      {
+        path: "customer",
+        name: "Customer",
+        component: Customer,
+        meta: { title: "客户管理"}
+      }
+    ]
   },
   {
     path: "/example",

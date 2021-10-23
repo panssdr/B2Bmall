@@ -10,7 +10,7 @@
       <el-table-column fixed="right" label="操作" width="100">
         <template #default="scope">
                <el-button @click="quote(scope.row)" type="text" size="small">我要报价</el-button>
-              <!--          <el-button @click="dialogFormVisible = true" type="text" size="small">我要报价</el-button>--></td>
+              <!--          <el-button @click="dialogFormVisible = true" type="text" size="small">我要报价</el-button>-->
         </template>
       </el-table-column>
     </el-table>
