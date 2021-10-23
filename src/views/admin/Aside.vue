@@ -23,7 +23,7 @@
                   <span>购买意向管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="2-1">待处理购买意向</el-menu-item>
+                  <el-menu-item index="2-1" @click="$router.push('/admin/PurInt')">待处理购买意向</el-menu-item>
                   <el-menu-item index="2-2">全部购买意向</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
