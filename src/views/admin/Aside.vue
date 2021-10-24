@@ -17,16 +17,16 @@
                   <el-menu-item index="1-2" @click="$router.push('/admin/Customer')">客户(买家)管理</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
-<!--              <el-submenu index="2">-->
-<!--                <template slot="title">-->
-<!--                  <i class="el-icon-edit"></i>-->
-<!--                  <span>购买意向管理</span>-->
-<!--                </template>-->
-<!--                <el-menu-item-group>-->
-<!--                  <el-menu-item index="2-1" @click="$router.push('/admin/PurInt')">待处理购买意向</el-menu-item>-->
-<!--                  <el-menu-item index="2-2">全部购买意向</el-menu-item>-->
-<!--                </el-menu-item-group>-->
-<!--              </el-submenu>-->
+              <el-submenu index="2">
+                <template slot="title">
+                  <i class="el-icon-edit"></i>
+                  <span>购买意向管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="2-1" @click="$router.push('/admin/PurInt')">待处理购买意向</el-menu-item>
+                  <el-menu-item index="2-2">全部购买意向</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
               <el-submenu index="3">
                 <template slot="title">
                   <i class="el-icon-edit"></i>
