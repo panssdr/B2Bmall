@@ -19,6 +19,7 @@ import Admin from '@/views/admin/Admin'
 import Customer from '@/views/admin/Customer'
 import RegisterCustomer from '@/views/admin/RegisterCustomer'
 import PurchaseIntention from '@/views/admin/PurchaseIntention'
+import AllPurchaseIntention from '@/views/admin/AllPurchaseIntention'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -100,6 +101,12 @@ export const constantRoutes = [
         name: "PurchaseIntention",
         component: PurchaseIntention,
         meta: { title: "购买意向"}
+      },
+      {
+        path: "AllPurInt",
+        name: "AllPurchaseIntention",
+        component: AllPurchaseIntention,
+        meta: { title: "全部购买意向"}
       },
     ]
   },

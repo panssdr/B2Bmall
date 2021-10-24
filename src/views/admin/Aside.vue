@@ -24,7 +24,7 @@
                 </template>
                 <el-menu-item-group>
                   <el-menu-item index="2-1" @click="$router.push('/admin/PurInt')">待处理购买意向</el-menu-item>
-                  <el-menu-item index="2-2">全部购买意向</el-menu-item>
+                  <el-menu-item index="2-2" @click="$router.push('/admin/AllPurInt')">全部购买意向</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="3">
