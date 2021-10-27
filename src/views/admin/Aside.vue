@@ -33,8 +33,8 @@
                   <span>需求管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="3-1">新建需求</el-menu-item>
-                  <el-menu-item index="3-2">需求管理</el-menu-item>
+                  <el-menu-item index="3-1" @click="$router.push('/admin/AddDM')">新建需求</el-menu-item>
+                  <el-menu-item index="3-2" @click="$router.push('/admin/DeMan')">需求管理</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="4">

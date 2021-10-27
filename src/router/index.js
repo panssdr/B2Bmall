@@ -20,6 +20,8 @@ import Customer from '@/views/admin/Customer'
 import RegisterCustomer from '@/views/admin/RegisterCustomer'
 import PurchaseIntention from '@/views/admin/PurchaseIntention'
 import AllPurchaseIntention from '@/views/admin/AllPurchaseIntention'
+import AddDemand from '@/views/admin/AddDemand'
+import DemandManage from '@/views/admin/DemandManage'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -107,6 +109,18 @@ export const constantRoutes = [
         name: "AllPurchaseIntention",
         component: AllPurchaseIntention,
         meta: { title: "全部购买意向"}
+      },
+      {
+        path: "AddDM",
+        name: "AddDemand",
+        component: AddDemand,
+        meta: { title: "新建需求"}
+      },
+      {
+        path: "DeMan",
+        name: "DemandManage",
+        component: DemandManage,
+        meta: { title: "需求管理"}
       },
     ]
   },
