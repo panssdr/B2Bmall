@@ -43,7 +43,7 @@
                   <span>询价管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="4-1">询价管理</el-menu-item>
+                  <el-menu-item index="4-1" @click="$router.push('/admin/RM')">询价管理</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="5">
@@ -59,8 +59,8 @@
                   <el-menu-item index="5-5">待付定金订单</el-menu-item>
                   <el-menu-item index="5-6">待付款订单</el-menu-item>
                   <el-menu-item index="5-7">待收货订单</el-menu-item>
-                  <el-menu-item index="5-7">已收货订单</el-menu-item>
-                  <el-menu-item index="5-7">全部订单</el-menu-item>
+                  <el-menu-item index="5-8">已收货订单</el-menu-item>
+                  <el-menu-item index="5-9">全部订单</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="6">

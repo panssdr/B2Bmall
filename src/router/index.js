@@ -22,6 +22,7 @@ import PurchaseIntention from '@/views/admin/PurchaseIntention'
 import AllPurchaseIntention from '@/views/admin/AllPurchaseIntention'
 import AddDemand from '@/views/admin/AddDemand'
 import DemandManage from '@/views/admin/DemandManage'
+import RFQManage from '@/views/admin/RFQManage'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -121,6 +122,12 @@ export const constantRoutes = [
         name: "DemandManage",
         component: DemandManage,
         meta: { title: "需求管理"}
+      },
+      {
+        path: "RM",
+        name: "RFQManage",
+        component: RFQManage,
+        meta: { title: "询价管理"}
       },
     ]
   },
