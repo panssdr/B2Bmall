@@ -14,7 +14,7 @@
           </div>
           <el-divider></el-divider>
           <div style="margin-bottom: 20px">
-            <Demand></Demand>
+            <Demand :demandList="demandList" ></Demand>
           </div>
         </div>
         <div class="bg-f5" style="height: 50px"></div>
@@ -25,7 +25,7 @@
         </div>
         <el-divider></el-divider>
           <div style="margin-bottom: 20px">
-            <Provide></Provide>
+            <Provide :supplyList="supplyList"></Provide>
           </div>
       </div>
         <ForYou></ForYou>
@@ -39,6 +39,7 @@
 
 <script>
 // import { getApi } from "../../assets/js/getApi.js";
+import axios from 'axios';
 import Head from "@/components/Head.vue";
 import Foot from "@/components/Foot.vue";
 import Search from "@/views/Home/Search.vue";
@@ -63,8 +64,23 @@ export default {
         Guess,
         ForYou,
     },
+    data(){
+      return{
+        demandList:[],
+        supplyList:[]
+      }
+    },
     mounted() {
 
+    axios.get("/api/demand/homeDemand").then(res=> {
+      this.demandList=res.data
+      // console.log(demandList);
+      })
+
+    axios.get("/api/supply/homeSupply").then(res=> {
+      this.supplyList=res.data
+      // console.log(demandList);
+      })
     },
     methods: {
       MoreDemand(){

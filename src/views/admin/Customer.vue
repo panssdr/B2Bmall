@@ -23,8 +23,8 @@
             icon="el-icon-info"
             icon-color="red"
             cancel-button-type="danger"
-            @confirm="pass"
-            @cancel="noPass"
+            @confirm="pass(scope.row.id)"
+            @cancel="noPass(scope.row.id)"
           >
             <el-button slot="reference" type="text" size="small">审核</el-button>
           </el-popconfirm>
@@ -45,23 +45,32 @@ export default {
       list:[{}],
     }
   },
-   mounted() {
-   Axios.get("/api/customer/findAll").then(res=>
-   {
-
-     this.list=res.data
-
-   }
-
-   ).catch(res => console.log(res))
-
+   created() {
+      Axios.get("/api/customer/findAll").then(res=>
+          {
+         this.list=res.data
+          }
+         ).catch(res => console.log(res))
   },
   methods:{
-    pass(){
-      console.log("通过")
+    pass(s){
+      Axios.get("api/customer/customerPass/"+s).
+       then( getList()).catch(
+        res => console.log(res)
+      )
     },
-    noPass(){
-      console.log("不通过")
+    noPass(s){
+       Axios.get("api/customer/customerFail/"+s).
+       then( getList()).catch(
+        res => console.log(res)
+      )
+    },
+    getList(){
+       Axios.get("/api/customer/findAll").then(res=>
+          {
+         this.list=res.data
+          }
+         ).catch(res => console.log(res))
     }
   },
 }
