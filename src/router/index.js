@@ -23,6 +23,10 @@ import AllPurchaseIntention from '@/views/admin/AllPurchaseIntention'
 import AddDemand from '@/views/admin/AddDemand'
 import DemandManage from '@/views/admin/DemandManage'
 import RFQManage from '@/views/admin/RFQManage'
+import PublishedQuotes from '@/views/admin/PublishedQuotes'
+import ConfirmedQuotes from '@/views/admin/ConfirmedQuotes'
+import AlreadyConfirmedQuotes from '@/views/admin/AlreadyConfirmedQuotes'
+import AllQuotesInfo from '@/views/admin/AllQuotesInfo'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -128,6 +132,30 @@ export const constantRoutes = [
         name: "RFQManage",
         component: RFQManage,
         meta: { title: "询价管理"}
+      },
+      {
+        path: "PQ",
+        name: "PublishedQuotes",
+        component: PublishedQuotes,
+        meta: { title: "待发布报价"}
+      },
+      {
+        path: "CQ",
+        name: "ConfirmedQuotes",
+        component: ConfirmedQuotes,
+        meta: { title: "待确认报价"}
+      },
+      {
+        path: "ACQ",
+        name: "AlreadyConfirmedQuotes",
+        component: AlreadyConfirmedQuotes,
+        meta: { title: "已确认报价"}
+      },
+      {
+        path: "AQI",
+        name: "AllQuotesInfo",
+        component: AllQuotesInfo,
+        meta: { title: "历史报价信息"}
       },
     ]
   },

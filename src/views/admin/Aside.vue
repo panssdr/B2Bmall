@@ -69,10 +69,10 @@
                   <span>商家接单处理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="6-1">待发布报价</el-menu-item>
-                  <el-menu-item index="6-2">待确认报价</el-menu-item>
-                  <el-menu-item index="6-3">已确认报价</el-menu-item>
-                  <el-menu-item index="6-4">历史报价信息</el-menu-item>
+                  <el-menu-item index="6-1" @click="$router.push('/admin/PQ')">待发布报价</el-menu-item>
+                  <el-menu-item index="6-2" @click="$router.push('/admin/CQ')">待确认报价</el-menu-item>
+                  <el-menu-item index="6-3" @click="$router.push('/admin/ACQ')">已确认报价</el-menu-item>
+                  <el-menu-item index="6-4" @click="$router.push('/admin/AQI')">历史报价信息</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="7">
