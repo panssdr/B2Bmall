@@ -2,8 +2,9 @@
     <el-row class="tac" >
         <el-col :span="12">
             <el-menu
+                    router
                     :uniqueOpened="true"
-                    :default-active="activeIndex"
+                    :default-active="this.$router.path"
                     class="el-menu-vertical-demo"
                     style="width: 400px;height: 100vh;float: left"
             >
@@ -13,8 +14,8 @@
                   <span>客户信息管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="1-1" @click="$router.push('/admin/reCus')">注册客户(买家)</el-menu-item>
-                  <el-menu-item index="1-2" @click="$router.push('/admin/Customer')">客户(买家)管理</el-menu-item>
+                  <el-menu-item index="/admin/reCus">注册客户(买家)</el-menu-item>
+                  <el-menu-item index="/admin/Customer">客户(买家)管理</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="2">
@@ -23,8 +24,8 @@
                   <span>购买意向管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="2-1" @click="$router.push('/admin/PurInt')">待处理购买意向</el-menu-item>
-                  <el-menu-item index="2-2" @click="$router.push('/admin/AllPurInt')">全部购买意向</el-menu-item>
+                  <el-menu-item index="/admin/PurInt">待处理购买意向</el-menu-item>
+                  <el-menu-item index="/admin/AllPurInt">全部购买意向</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="3">
@@ -33,8 +34,8 @@
                   <span>需求管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="3-1" @click="$router.push('/admin/AddDM')">新建需求</el-menu-item>
-                  <el-menu-item index="3-2" @click="$router.push('/admin/DeMan')">需求管理</el-menu-item>
+                  <el-menu-item index="/admin/AddDM">新建需求</el-menu-item>
+                  <el-menu-item index="/admin/DeMan">需求管理</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="4">
@@ -43,7 +44,7 @@
                   <span>询价管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="4-1" @click="$router.push('/admin/RM')">询价管理</el-menu-item>
+                  <el-menu-item index="/admin/RM">询价管理</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="5">
@@ -69,10 +70,10 @@
                   <span>商家接单处理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="6-1" @click="$router.push('/admin/PQ')">待发布报价</el-menu-item>
-                  <el-menu-item index="6-2" @click="$router.push('/admin/CQ')">待确认报价</el-menu-item>
-                  <el-menu-item index="6-3" @click="$router.push('/admin/ACQ')">已确认报价</el-menu-item>
-                  <el-menu-item index="6-4" @click="$router.push('/admin/AQI')">历史报价信息</el-menu-item>
+                  <el-menu-item index="/admin/PQ">待发布报价</el-menu-item>
+                  <el-menu-item index="/admin/CQ">待确认报价</el-menu-item>
+                  <el-menu-item index="/admin/ACQ">已确认报价</el-menu-item>
+                  <el-menu-item index="/admin/AQI">历史报价信息</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
               <el-submenu index="7">
