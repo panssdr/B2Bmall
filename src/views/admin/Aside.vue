@@ -82,7 +82,7 @@
                   <span>后台技术员业务</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="7-1">询价分析</el-menu-item>
+                  <el-menu-item index="/admin/IA">询价分析</el-menu-item>
                   <el-menu-item index="7-2">询价报价审核</el-menu-item>
                   <el-menu-item index="7-3">报价审核管理</el-menu-item>
                 </el-menu-item-group>
@@ -103,9 +103,9 @@
                   <span>后台QC业务</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="8-1">注册商家</el-menu-item>
-                  <el-menu-item index="7-2">询价报价审核</el-menu-item>
-                  <el-menu-item index="7-3">报价审核管理</el-menu-item>
+                  <el-menu-item index="9-1">注册商家</el-menu-item>
+                  <el-menu-item index="/admin/IM">询价管理</el-menu-item>
+                  <el-menu-item index="9-3">报价管理</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
             </el-menu>

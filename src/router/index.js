@@ -27,6 +27,8 @@ import PublishedQuotes from '@/views/admin/PublishedQuotes'
 import ConfirmedQuotes from '@/views/admin/ConfirmedQuotes'
 import AlreadyConfirmedQuotes from '@/views/admin/AlreadyConfirmedQuotes'
 import AllQuotesInfo from '@/views/admin/AllQuotesInfo'
+import InquiryAnalysis from '@/views/admin/InquiryAnalysis'
+import InquiryManagement from '@/views/admin/InquiryManagement'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -156,6 +158,18 @@ export const constantRoutes = [
         name: "AllQuotesInfo",
         component: AllQuotesInfo,
         meta: { title: "历史报价信息"}
+      },
+      {
+        path: "IA",
+        name: "InquiryAnalysis",
+        component: InquiryAnalysis,
+        meta: { title: "询价分析"}
+      },
+      {
+        path: "IM",
+        name: "InquiryManagement",
+        component: InquiryManagement,
+        meta: { title: "询价管理"}
       },
     ]
   },
