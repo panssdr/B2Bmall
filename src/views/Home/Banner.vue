@@ -42,6 +42,7 @@
         </div>
       </div>
       <div class="user-news">
+        
         <div>
           <span :class="act == 1 ? 'act' : ''" @click="userNews(1)"
             >资讯头条</span
@@ -56,6 +57,7 @@
           <li>▫ 东风变速箱最新报道</li>
           <li>▫ 东风变速箱最新报道东...</li>
         </ul>
+
       </div>
       <div class="user-more">查看更多 <i class="el-icon-arrow-right"></i></div>
     </div>
@@ -72,23 +74,25 @@ export default {
       act: 1,
       menuList: [],
       menuList1: [],
-      bannerList: []
+      bannerList: [{"id":1,
+      "cate_id":1,"title":"第一张","s_title":"第一张","summary":"第一张第一张",
+      "img":"http://5b0988e595225.cdn.sohucs.com/images/20180128/6a11c827f3664846ab6516578778eb79.jpeg",
+      "url":"0","content":"","sort":0,"status":1,"create_time":"2020-04-17 16:17:54",
+      "update_time":"2020-12-01 23:37:04","delete_time":0,"cate_name":"首页顶部轮播图"},
+      {"id":2,"cate_id":1,"title":"第二张","s_title":"第二张","summary":"第二张",
+      "img":"http://www.sdhuaye.com/imageRepository/105f4a6d-1f79-47db-bdb4-4cc6798991ea.jpg","url":"0",
+      "content":"","sort":0,"status":1,"create_time":"2020-04-25 14:48:49",
+      "update_time":"2020-12-01 23:31:45","delete_time":0,"cate_name":"首页顶部轮播图"},
+      {"id":3,"cate_id":1,"title":"博世","s_title":"2","summary":"22",
+      "img":"http://img105.job1001.com/upload/adminnew/2014-09-26/1411722319-DWC2HEZ.jpg",
+      "url":"0","content":null,"sort":0,"status":1,"create_time":"2020-04-25 19:20:01",
+      "update_time":"2020-12-01 23:31:28","delete_time":0,"cate_name":"首页顶部轮播图"}]
     };
   },
   mounted() {
     Axios.get("https://zsl.zmzhi.com/api/goods/getCategoryTree").then(r => {
       if (r.data.code == 0) {
         this.menuList = r.data.data;
-      } else {
-        console.log(r.data.msg);
-      }
-    });
-    Axios.get(
-      "https://zsl.zmzhi.com/api/carousel/getCarouselList?cate_id=1"
-    ).then(r => {
-      if (r.data.code == 0) {
-        this.bannerList = r.data.data;
-        console.log(this.bannerList, "123");
       } else {
         console.log(r.data.msg);
       }
