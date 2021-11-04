@@ -5,7 +5,6 @@
       <el-table-column prop="type" label="类型" width="180"> </el-table-column>
       <el-table-column prop="specifications" label="产品规格"> </el-table-column>
       <el-table-column prop="priceAndAmount" label="单价"> </el-table-column>
-      <el-table-column prop="isExist" label="有无现货"> </el-table-column>
       <el-table-column prop="moq" label="最小起订量"> </el-table-column>
       <el-table-column prop="supplyCompany" label="供货单位"> </el-table-column>
       <el-table-column prop="createDate" label="创建日期"> </el-table-column>
