@@ -42,21 +42,9 @@
         </div>
       </div>
       <div class="user-news">
-        
-        <div>
-          <span :class="act == 1 ? 'act' : ''" @click="userNews(1)"
-            >资讯头条</span
-          >
-          <span :class="act == 2 ? 'act' : ''" @click="userNews(2)"
-            >论坛精选</span
-          >
-        </div>
-        <ul>
-          <li>▫ 东风变速箱最新报道东是...</li>
-          <li>▫ 东风变速箱最新报道东...</li>
-          <li>▫ 东风变速箱最新报道</li>
-          <li>▫ 东风变速箱最新报道东...</li>
-        </ul>
+       <div>
+
+       </div>
 
       </div>
       <div class="user-more">查看更多 <i class="el-icon-arrow-right"></i></div>
@@ -72,7 +60,39 @@ export default {
     return {
       show: false,
       act: 1,
-      menuList: [],
+      menuList: [{id:1,name:"时装面料",data:[{name:'主要成分',data:[{name:"全棉"},{name:"麻"},{name:"真丝"},{name:"羊毛"},{name:"化纤"},{name:"混纺"}]},
+                {name:"产品名称",data:[{name:"全棉纱卡"},{name:"涤棉纱卡"},{name:"精工呢"},{name:"厨师格"},{name:"华达呢"},{name:"卡其"},]},
+                {name:"生产设备",data:[{name:"喷水织机"},{name:"喷气织机"},{name:"箭杆织机"},{name:"有梭织机"},{name:"双面圆机"},{name:"单面圆机"},{name:"经编织机"},{name:"提花织机"}]},
+                {name:"精细加工",data:[{name:"防皱处理"},{name:"防水处理"}]}]},
+                {id:2,name:"工装面料",data:[{name:'主要成分',data:[{name:"毛涤"},{name:"纺毛"},{name:"纯毛"}]},
+                {name:"产品名称",data:[{name:"斜纹TR哔叽西装"},{name:"涤粘休闲裤装工作服"},{name:"水手服"},{name:"JK制服衬衫"},{name:" 时装面料"}]},
+                {name:"生产设备",data:[{name:"600绷缝机"},{name:"500绷缝机"}]},
+                {name:"精细加工",data:[{name:"防皱处理"}]}]},
+                {id:3,name:"家纺布料",data:[{name:'主要成分',data:[{name:"棉"},{name:"羊毛"},{name:"兔毛"},{name:"石棉"},{name:"粘胶纤维"}]},
+                {name:"产品名称",data:[{name:"纯棉"},{name:"涤棉混纺"},{name:"真丝"},{name:"色织棉"}]},
+                {name:"生产设备",data:[{name:"喷水织机"},{name:"喷气织机"},{name:"箭杆织机"},{name:"有梭织机"},{name:"双面圆机"},{name:"单面圆机"},{name:"经编织机"},{name:"提花织机"}]},
+                {name:"精细加工",data:[{name:"防皱处理"},{name:"防水处理"}]}]},
+                {id:4,name:"工业用布",data:[{name:'主要成分',data:[{name:"长丝聚酯纤维"},{name:"涤纶"},{name:"丙纶"},{name:"聚丙烯"}]},
+                {name:"产品名称",data:[{name:"复丝滤布"},{name:"气固分离类除尘滤料"},{name:"透气层布"},{name:"捕集袋"}]},
+                {name:"生产设备",data:[{name:"丰田织机"},{name:"津田驹织机"},{name:"喷水织机"}]},
+                {name:"精细加工",data:[{name:"防皱处理"},{name:"防水处理"}]}]},
+                {id:5,name:"功能性用布",data:[{name:'主要成分',data:[{name:"涤棉"},{name:"全棉"},{name:"真丝"},{name:"羊毛"},{name:"化纤"},{name:"混纺"}]},
+                {name:"产品名称",data:[{name:"全棉纱卡"},{name:"涤棉纱卡"},{name:"精工呢"},{name:"厨师格"},{name:"华达呢"},{name:"卡其"},]},
+                {name:"生产设备",data:[{name:"喷水织机"},{name:"喷气织机"},{name:"箭杆织机"},{name:"有梭织机"},{name:"双面圆机"},{name:"单面圆机"},{name:"经编织机"},{name:"提花织机"}]},
+                {name:"精细加工",data:[{name:"阻燃处理"},{name:"防静电处理"},{name:"防火"},{name:"耐高温处理"}]}]},
+                {id:6,name:"胚布市场",data:[{name:'主要成分',data:[{name:"涤棉"},{name:"真丝"},{name:"羊毛"},{name:"混纺"}]},
+                {name:"产品名称",data:[{name:"涤棉坯布"},{name:"网格布胚布"},{name:"中碱网格布"},{name:"大眼网格布"}]},
+                {name:"生产设备",data:[{name:"喷水织机"},{name:"喷气织机"},{name:"箭杆织机"},{name:"有梭织机"},{name:"双面圆机"},{name:"单面圆机"},{name:"经编织机"},{name:"提花织机"}]},
+                {name:"精细加工",data:[{name:"耐高温处理"},{name:"防皱处理"},{name:"防水处理"}]}]},
+                {id:7,name:"辅料市场",data:[{name:'主要成分',data:[{name:"黄麻纱线"},{name:"涤纶"},{name:"真丝"},{name:"丙纶"},{name:"化纤"},{name:"混纺"}]},
+                {name:"产品名称",data:[{name:"优质黄麻绳 "},{name:"细绳子"},{name:"间色织带"},{name:"涤纶仿尼龙织带"},{name:"杂纹织带"}]},
+                {name:"生产设备",data:[{name:"喷水织机"},{name:"单面圆机"},{name:"经编织机"},{name:"喷气织机"},{name:"提花织机"}]},
+                {name:"精细加工",data:[{name:"防皱处理"},{name:"防水处理"}]}]},
+                {id:8,name:"原料市场",data:[{name:'主要成分',data:[{name:"真丝"},{name:"羊毛"},{name:"化纤"},{name:"混纺"}]},
+                {name:"产品名称",data:[{name:"全棉纱卡"},{name:"涤棉纱卡"},{name:"精工呢"},{name:"厨师格"},{name:"华达呢"},{name:"卡其"},]},
+                {name:"生产设备",data:[{name:"喷气织机"},{name:"箭杆织机"},{name:"有梭织机"},{name:"提花织机"},{name:"双面圆机"},{name:"单面圆机"}]},
+                {name:"精细加工",data:[{name:"防皱处理"}]}]}
+                ],
       menuList1: [],
       bannerList: [{"id":1,
       "cate_id":1,"title":"第一张","s_title":"第一张","summary":"第一张第一张",
@@ -89,15 +109,15 @@ export default {
       "update_time":"2020-12-01 23:31:28","delete_time":0,"cate_name":"首页顶部轮播图"}]
     };
   },
-  mounted() {
-    Axios.get("https://zsl.zmzhi.com/api/goods/getCategoryTree").then(r => {
-      if (r.data.code == 0) {
-        this.menuList = r.data.data;
-      } else {
-        console.log(r.data.msg);
-      }
-    });
-  },
+  // mounted() {
+  //   Axios.get("https://zsl.zmzhi.com/api/goods/getCategoryTree").then(r => {
+  //     if (r.data.code == 0) {
+  //       this.menuList = r.data.data;
+  //     } else {
+  //       console.log(r.data.msg);
+  //     }
+  //   });
+  // },
   methods: {
     showMenuList(n) {
       this.show = true;
@@ -140,7 +160,11 @@ export default {
       border: 2px solid #2d82ff;
       padding: 20px;
       li {
-        font-size: 14px;
+
+        a:hover{
+          color:rgb(241, 63, 122);
+        }
+        font-size: 15px;
         p {
           text-align: left;
           &:first-child {
@@ -159,13 +183,14 @@ export default {
       background-color: #fff;
       li {
         text-align: center;
-        height: 40px;
-        line-height: 40px;
+        height: 50px;
+        line-height: 50px;
         border-left: 4px solid #fff;
         cursor: pointer;
 
         &:hover {
           border-left: 4px solid #2d82ff;
+          color: red;
           background-color: rgba(124, 235, 255, 0.274);
         }
       }

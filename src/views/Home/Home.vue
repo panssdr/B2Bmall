@@ -28,7 +28,8 @@
             <Provide :supplyList="supplyList"></Provide>
           </div>
       </div>
-        <ForYou></ForYou>
+        <!-- <ForYou></ForYou> -->
+        <!--  删除该位置 -->
         <section class="guess w1200">
             <p>猜你喜欢</p>
             <Guess></Guess>
