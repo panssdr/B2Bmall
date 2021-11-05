@@ -29,6 +29,9 @@ import AlreadyConfirmedQuotes from '@/views/admin/AlreadyConfirmedQuotes'
 import AllQuotesInfo from '@/views/admin/AllQuotesInfo'
 import InquiryAnalysis from '@/views/admin/InquiryAnalysis'
 import InquiryManagement from '@/views/admin/InquiryManagement'
+import Quotation from '@/views/UserCenter/Seller/Quotation'
+import RFQAndQuotation from '@/views/admin/RFQAndQuotation'
+import SecondRAQ from '@/views/admin/SecondRAQ'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -170,6 +173,18 @@ export const constantRoutes = [
         name: "InquiryManagement",
         component: InquiryManagement,
         meta: { title: "询价管理"}
+      },
+      {
+        path: "RAQ",
+        name: "RFQAndQuotation",
+        component: RFQAndQuotation,
+        meta: { title: "询价报价审核"}
+      },
+      {
+        path: "SRAQ",
+        name: "SecondRAQ",
+        component: SecondRAQ,
+        meta: { title: "主管审核报价"}
       },
     ]
   },
@@ -366,6 +381,12 @@ export const constantRoutes = [
         component:ChangePwd,
         name: "ChangePwd",
         meta: { title: "紫色鹭-修改密码" }
+      },
+      {
+        path: "Quotation",
+        component:Quotation,
+        name: "Quotation",
+        meta: { title: "紫色鹭-报价单列表" }
       },
       ]
   },

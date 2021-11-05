@@ -16,6 +16,15 @@ export default {
       activeName: 'first'
     };
   },
+  methods:{
+    handleClick(){
+      if (this.activeName === 'first'){
+        this.activeName = 'second';
+      }else {
+        this.activeName = 'first';
+      }
+    }
+  }
 }
 </script>
 
