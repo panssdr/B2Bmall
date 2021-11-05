@@ -83,7 +83,7 @@
                 </template>
                 <el-menu-item-group>
                   <el-menu-item index="/admin/IA">询价分析</el-menu-item>
-                  <el-menu-item index="7-2">询价报价审核</el-menu-item>
+                  <el-menu-item index="/admin/RAQ">询价报价审核</el-menu-item>
                   <el-menu-item index="7-3">报价审核管理</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
@@ -106,6 +106,16 @@
                   <el-menu-item index="9-1">注册商家</el-menu-item>
                   <el-menu-item index="/admin/IM">询价管理</el-menu-item>
                   <el-menu-item index="9-3">报价管理</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
+              <el-submenu index="10">
+                <template slot="title">
+                  <i class="el-icon-edit"></i>
+                  <span>询价报价审核</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="/admin/SRAQ">待审核报价</el-menu-item>
+                  <el-menu-item index="10-2">已审核报价</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
             </el-menu>
