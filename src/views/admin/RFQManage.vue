@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-table :data="list" stripe style="width: 90%;margin: 0 auto" @row-click="getId">
-      <el-table-column prop="id" label="询价ID"> </el-table-column>
+      <el-table-column prop="list.id" label="询价ID"> </el-table-column>
       <el-table-column prop="id" label="需求ID"> </el-table-column>
       <el-table-column prop="id" label="客户ID"> </el-table-column>
       <el-table-column prop="type" label="商家报价" width="100"> </el-table-column>
@@ -19,7 +19,12 @@
 
 <script>
 export default {
-  name: 'RFQManage'
+  name: 'RFQManage',
+  data(){
+    return{
+      list:[{}]
+    }
+  }
 }
 </script>
 

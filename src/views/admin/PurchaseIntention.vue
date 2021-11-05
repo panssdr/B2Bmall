@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import request from '@/api/request'
 import Axios from 'axios'
 export default {
   name: 'PurchaseIntention',

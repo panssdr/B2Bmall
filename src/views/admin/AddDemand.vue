@@ -1,110 +1,121 @@
 <template>
   <div style="width: 55%;margin: 0px auto;margin-top: 20px">
-    <el-form :inline="true" :model="form" class="demo-form-inline" label-position="left" :rules="rules" ref="form">
+    <el-form
+      :inline="true"
+      :model="form"
+      class="demo-form-inline"
+      label-position="left"
+      ref="form"
+    >
       <el-form-item label="商品名称" label-width="100px" class="item">
-        <el-input v-model="form.id"></el-input>
+        <el-input v-model="form.goodsName"></el-input>
       </el-form-item>
       <el-form-item label="类别" label-width="100px" class="item">
-        <el-select v-model="value1" placeholder="请选择">
+        <el-select v-model="form.categoryID1" placeholder="请选择">
           <el-option
-            v-for="item in options1"
+            v-for="item in categoryID1"
             :key="item.value"
             :label="item.label"
-            :value="item.value">
+            :value="item.value"
+          >
           </el-option>
         </el-select>
       </el-form-item>
-      <hr>
-      <br>
-      <el-form-item label="商品规格" label-width="100px" prop="name" class="item">
-        <el-input v-model="form.spec"></el-input>
+      <hr />
+      <br />
+      <el-form-item label="商品规格" label-width="100px" class="item">
+        <el-input v-model="form.specifications"></el-input>
       </el-form-item>
-      <el-form-item label="单价(元)" label-width="100px" prop="tel" class="item">
+      <el-form-item label="单价(元)" label-width="100px" class="item">
         <el-input v-model="form.price"></el-input>
       </el-form-item>
-      <hr>
-      <br>
+      <hr />
+      <br />
       <el-form-item label="数量" label-width="100px" class="item">
-        <el-input v-model="form.number"></el-input>
+        <el-input v-model="form.amount"></el-input>
       </el-form-item>
-      <el-form-item label="单位" label-width="100px" prop="company" class="item">
-        <el-select v-model="value2" placeholder="请选择">
+      <el-form-item label="单位" label-width="100px" class="item">
+        <el-select v-model="form.unit" placeholder="请选择">
           <el-option
             v-for="item in options2"
             :key="item.value"
             :label="item.label"
-            :value="item.value">
+            :value="item.value"
+          >
           </el-option>
         </el-select>
       </el-form-item>
-      <hr>
-      <br>
-      <el-form-item label="商品描述" label-width="100px" prop="address" class="item">
-        <el-input v-model="form.address" type="textarea"></el-input>
+      <hr />
+      <br />
+      <el-form-item label="商品描述" label-width="100px" class="item">
+        <el-input v-model="form.descript" type="textarea"></el-input>
       </el-form-item>
-      <el-form-item label="用途" label-width="100px" prop="companyTel" class="item">
-        <el-input v-model="form.companyTel" type="textarea"></el-input>
+      <el-form-item label="用途" label-width="100px" class="item">
+        <el-input v-model="form.usePurpose" type="textarea"></el-input>
       </el-form-item>
-      <hr>
-      <br>
+      <hr />
+      <br />
       <el-form-item label="门幅(吋)" label-width="100px" class="item">
-        <el-input v-model="form.type" ></el-input>
+        <el-input v-model="form.width"></el-input>
       </el-form-item>
       <el-form-item label="面料成分" label-width="100px" class="item">
-        <el-input v-model="form.status" ></el-input>
+        <el-input v-model="form.ingredient"></el-input>
       </el-form-item>
-      <br/>
+      <br />
       <el-form-item>
-        <el-button type="success" @click="saveUpdate('form')">新建更新</el-button>
+        <el-button type="success" @click="saveUpdate(form)">新建需求</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
+import Axios from "axios";
 export default {
-  name: 'AddDemand',
+  name: "AddDemand",
   data() {
     return {
+      categoryID1: [
+        { label: "时装面料", value: 1 },
+        { label: "工装面料", value: 2 },
+        { label: "家纺布艺", value: 3 },
+        { label: "工业用布", value: 4 },
+        { label: "功能性新产品", value: 5 },
+        { label: "坯布市场", value: 6 },
+        { label: "辅料市场", value: 7 }
+      ],
+      options2: [
+        { label: "米", value: "米" },
+        { label: "公斤", value: "公斤" },
+        { label: "吨", value: "吨" },
+        { label: "布", value: "布" },
+        { label: "纱线", value: "纱线" }
+      ],
+      value2: "米",
       form: {
-      },
-      rules:{
-        name: [
-          { required: true, message: '请填写姓名', trigger: 'blur' }
-        ],
-        tel: [
-          { required: true, message: '请填手机号码', trigger: 'blur' }
-        ],
-        company: [
-          { required: true, message: '请填公司名称', trigger: 'blur' }
-        ],
-        address: [
-          { required: true, message: '请填公司地址', trigger: 'blur' }
-        ],
-        companyTel: [
-          { required: true, message: '请填公司电话', trigger: 'blur' }
-        ],
-      },
+        goodsName: "",
+        categoryID1: 1,
+        specifications: "",
+        price: "",
+        customerID: 13,
+        amount: "",
+        unit: "米",
+        descript: "",
+        usePurpose: "",
+        width: "",
+        ingredient: ""
+      }
+    };
+  },
+  methods: {
+    saveUpdate(formName) {
+      Axios.post(
+        "/api/demand/createTableByCustomerService",
+        formName
+      ).catch(res => console.log(res));
     }
-  },
-  methods:{
-    saveUpdate(formName){
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          this.$message({
-            message: '保存成功',
-            type: 'success'
-          });
-        } else {
-          // console.log('error submit!!');
-          return false;
-        }
-      });
-    },
-  },
-}
+  }
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
