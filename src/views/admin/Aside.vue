@@ -118,6 +118,16 @@
                   <el-menu-item index="10-2">已审核报价</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
+              <el-submenu index="11">
+                <template slot="title">
+                  <i class="el-icon-edit"></i>
+                  <span>订单合同审核</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="/admin/RC">待审核订单合同</el-menu-item>
+                  <el-menu-item index="11-2">已审核订单合同</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
             </el-menu>
         </el-col>
     </el-row>

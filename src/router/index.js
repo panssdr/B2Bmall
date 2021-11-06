@@ -33,6 +33,7 @@ import Quotation from '@/views/UserCenter/Seller/Quotation'
 import RFQAndQuotation from '@/views/admin/RFQAndQuotation'
 import SecondRAQ from '@/views/admin/SecondRAQ'
 import BuildContract from '@/views/admin/BuildContract'
+import ReviewContract from '@/views/admin/ReviewContract'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -191,7 +192,13 @@ export const constantRoutes = [
         path: "BC",
         name: "BuildContract",
         component: BuildContract,
-        meta: { title: "主管审核报价"}
+        meta: { title: "待建合同订单"}
+      },
+      {
+        path: "RC",
+        name: "ReviewContract",
+        component: ReviewContract,
+        meta: { title: "主管审核订单合同"}
       },
     ]
   },
