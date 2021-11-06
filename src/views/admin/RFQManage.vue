@@ -28,6 +28,52 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <el-dialog title="创建新订单" :visible.sync="dialogFormVisible" width="70%">
+      <div style="width: 60%;margin: 0px auto;">
+        <el-form :model="form" class="demo-form" :inline="true" label-position="left" :rules="rules" ref="form">
+          <el-form-item label="需求ID" label-width="100px" class="item">
+            <el-input v-model="form.id" disabled></el-input>
+          </el-form-item>
+          <el-form-item label="供应ID" label-width="100px" class="item">
+            <el-input v-model="form.id" disabled></el-input>
+          </el-form-item>
+          <el-form-item label="客户ID" label-width="100px" class="item">
+            <el-input v-model="form.id" disabled></el-input>
+          </el-form-item>
+          <el-form-item label="商家ID" label-width="100px" class="item">
+            <el-input v-model="form.id" disabled></el-input>
+          </el-form-item>
+          <el-form-item label="商品名称" label-width="100px" prop="name" class="item">
+            <el-input v-model="form.spec"></el-input>
+          </el-form-item>
+          <el-form-item label="商品类别" label-width="100px" prop="name" class="item">
+            <el-input v-model="form.spec"></el-input>
+          </el-form-item>
+          <el-form-item label="商品规格" label-width="100px" prop="address" class="item">
+            <el-input v-model="form.address"></el-input>
+          </el-form-item>
+          <el-form-item label="数量单位" label-width="100px" class="item">
+            <el-input v-model="form.id" disabled></el-input>
+          </el-form-item>
+          <el-form-item label="订购数量" label-width="100px" class="item">
+            <el-input v-model="form.id" disabled></el-input>
+          </el-form-item>
+          <el-form-item label="单位价格(元)" label-width="100px" class="item">
+            <el-input v-model="form.id" disabled></el-input>
+          </el-form-item>
+          <el-form-item label="订单描述" label-width="100px" prop="address" class="item">
+            <el-input v-model="form.address" type="textarea" style="width: 450px" :rows="3"></el-input>
+          </el-form-item>
+        </el-form>
+      </div>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="closeDialog" type="danger">关闭</el-button>
+          <el-button type="primary" @click="save('form')">生成订单</el-button>
+        </span>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -38,7 +84,9 @@ export default {
   data(){
     return{
       list:[{}],
-      currentRow:null
+      currentRow:null,
+      dialogFormVisible:false,
+      form:{}
     }
   },
   methods:{
@@ -82,11 +130,32 @@ export default {
             break
         }
       }
-    }
+    },
+    generate(id){
+      this.dialogFormVisible = true;
+    },
+    save(formName){
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          this.$message({
+            message: '保存成功',
+            type: 'success'
+          });
+          this.dialogFormVisible = false;
+        } else {
+          // console.log('error submit!!');
+          return false;
+        }
+      });
+    },
+    //关闭弹窗
+    closeDialog(){
+      this.dialogFormVisible = false;
+    },
   },
   created(){
     this.getList();
-  }
+  },
 }
 </script>
 

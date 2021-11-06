@@ -85,7 +85,7 @@ export default {
         this.isClickId=this.currentRow.id
       },
     examine(id){
-      Axios.get("/api/demandsupply/findDemandSupplyByNumId/"+this.isClickId).then(res => this.form=res.data)
+      // Axios.get("/api/demandsupply/findDemandSupplyByNumId/"+this.isClickId).then(res => this.form=res.data)
       this.dialogFormVisible = true;
     },
     save(formName){

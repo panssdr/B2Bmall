@@ -53,7 +53,7 @@
                   <span>订单管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="5-1">待建合同订单</el-menu-item>
+                  <el-menu-item index="/admin/BC">待建合同订单</el-menu-item>
                   <el-menu-item index="5-2">待审核订单</el-menu-item>
                   <el-menu-item index="5-3">未过审核订单</el-menu-item>
                   <el-menu-item index="5-4">待确认订单</el-menu-item>
@@ -116,6 +116,16 @@
                 <el-menu-item-group>
                   <el-menu-item index="/admin/SRAQ">待审核报价</el-menu-item>
                   <el-menu-item index="10-2">已审核报价</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
+              <el-submenu index="11">
+                <template slot="title">
+                  <i class="el-icon-edit"></i>
+                  <span>订单合同审核</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="/admin/RC">待审核订单合同</el-menu-item>
+                  <el-menu-item index="11-2">已审核订单合同</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
             </el-menu>
