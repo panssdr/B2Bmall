@@ -34,6 +34,8 @@ import RFQAndQuotation from '@/views/admin/RFQAndQuotation'
 import SecondRAQ from '@/views/admin/SecondRAQ'
 import BuildContract from '@/views/admin/BuildContract'
 import ReviewContract from '@/views/admin/ReviewContract'
+import Collection from '@/views/admin/Collection'
+import CollectionManage from '@/views/admin/CollectionManage'
 // import { resolve } from "core-js/fn/promise";
 
 /**
@@ -199,6 +201,18 @@ export const constantRoutes = [
         name: "ReviewContract",
         component: ReviewContract,
         meta: { title: "主管审核订单合同"}
+      },
+      {
+        path: "Collection",
+        name: "Collection",
+        component: Collection,
+        meta: { title: "财务收款确认"}
+      },
+      {
+        path: "CM",
+        name: "CollectionManage",
+        component: CollectionManage,
+        meta: { title: "财务收款确认管理"}
       },
     ]
   },

@@ -128,6 +128,16 @@
                   <el-menu-item index="11-2">已审核订单合同</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
+              <el-submenu index="12">
+                <template slot="title">
+                  <i class="el-icon-edit"></i>
+                  <span>应收业务</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="/admin/Collection">收款确认</el-menu-item>
+                  <el-menu-item index="/admin/CM">收款确认管理</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
             </el-menu>
         </el-col>
     </el-row>
