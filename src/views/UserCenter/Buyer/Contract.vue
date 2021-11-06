@@ -11,7 +11,7 @@
       <el-table-column prop="status" label="订单状态" width="80"> </el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template #default="scope">
-          <el-button @click="demand(scope.row)" type="text" size="small">查看合同</el-button>
+          <el-button @click="detail(scope.row.id)" type="text" size="small">查看合同</el-button>
           <!--          <el-button @click="dialogFormVisible = true" type="text" size="small">我要报价</el-button>-->
         </template>
       </el-table-column>
@@ -26,6 +26,29 @@
       :total="100"
     >
     </el-pagination>
+
+    <el-dialog title="创建新订单" :visible.sync="dialogFormVisible" width="70%">
+      <div style="width: 60%;margin: 0px auto;">
+        <el-form :model="form" class="demo-form" label-position="left" :rules="rules" ref="form">
+          <el-form-item label="合同号" label-width="100px" class="item">
+            <el-input v-model="form.id" disabled></el-input>
+          </el-form-item>
+          <el-form-item label="合同状态" label-width="100px" class="item">
+            <el-input v-model="form.id" disabled></el-input>
+          </el-form-item>
+        </el-form>
+        <div>
+          <p>合同内容</p>
+          <p v-html="content"/>
+        </div>
+      </div>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="refuse" type="danger">拒绝合同</el-button>
+          <el-button type="primary" @click="agree">同意合同</el-button>
+        </span>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -34,7 +57,25 @@ export default {
   name: 'Contract',
   data(){
     return{
-      tableData: [{}]
+      tableData: [{}],
+      dialogFormVisible:false,
+      form:{},
+      content:'',
+    }
+  },
+  methods:{
+    detail(id){
+      this.dialogFormVisible = true;
+    },
+    agree(){
+      this.$message({
+        message: '合同签订成功',
+        type: 'success'
+      });
+      this.dialogFormVisible = false;
+    },
+    refuse(){
+      this.dialogFormVisible = false;
     }
   }
 }
