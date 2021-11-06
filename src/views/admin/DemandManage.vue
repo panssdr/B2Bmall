@@ -3,10 +3,10 @@
     <div style="margin-left:80px;">
       <el-button class="el-icon-edit" type="text">修改</el-button>
       <el-button class="el-icon-delete" type="text">删除</el-button>
-      <el-button class="el-icon-sort" type="text">发起询价</el-button>
+      <el-button class="el-icon-sort" type="text" @click="sendInquiry">发起询价</el-button>
       <el-button class="el-icon-circle-close" type="text">停止流转</el-button>
     </div>
-    <el-table :data="list" fit="false" style="width: 90%;margin: 0 auto" @row-click="getId" highlight-current-row   @current-change="handleCurrentChange">
+    <el-table :data="list" style="width: 90%;margin: 0 auto" highlight-current-row   @current-change="handleCurrentChange">
       <el-table-column prop="id" label="需求ID"> </el-table-column>
       <el-table-column prop="customerID" label="客户ID"> </el-table-column>
       <el-table-column prop="goodsName" label="需求名称"> </el-table-column>
@@ -36,25 +36,17 @@ export default {
   data(){
     return{
       list:[{}],
-      clickNumber:"",
+      clickNumber:0,
       currentRow:null,
     }
   },
   methods:{
-    getId(row){
-      this.clickNumber=row.getId
-    },
      handleCurrentChange(val) {
         this.currentRow = val;
-      }
-  },
-  computed:{
-    isClick(){
-      return this.currentNumber=this.currentNumber
-    }
-  },
-  mounted(){
-    Axios.get("/api/demand/deMan").then(res => {
+        this.clickNumber=val.id;
+      },
+      getList(){
+         Axios.get("/api/demand/deMan").then(res => {
       this.list=res.data
 
      for(let i=0;i<this.list.length;i++){
@@ -69,9 +61,20 @@ export default {
         this.list[i].status="已结束"
       }
      }
-
-
       }).catch( res => console.log(res))
+      },
+      sendInquiry(){
+          console.log(this.clickNumber);
+        Axios.get("/api/demand/sendInquiry/"+this.clickNumber).then(this.getList())
+      }
+  },
+  computed:{
+    isClick(){
+      return this.currentNumber=this.currentNumber
+    }
+  },
+  created(){
+    this.getList()
   }
 }
 </script>

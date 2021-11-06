@@ -1,9 +1,6 @@
 <template>
   <div>
-<!--    <div class="header" style="margin-left: 70px; ">-->
-<!--      <el-button type="success"  class="el-icon-check">审核通过</el-button>-->
-<!--      <el-button type="danger" class="el-icon-close">审核不通过</el-button>-->
-<!--    </div>-->
+
     <el-table :data="list" stripe style="margin: 0 auto">
       <el-table-column prop="id" label="ID"> </el-table-column>
       <el-table-column prop="type" label="手机号" width="180"> </el-table-column>
