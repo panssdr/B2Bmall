@@ -2,9 +2,7 @@
   <el-menu
     default-active="2"
     class="el-menu-vertical-demo"
-    @open="handleOpen"
-    @close="handleClose"
-    unique-opened="true"
+
     style="height: 100vh">
     <el-submenu index="1">
       <template slot="title">
