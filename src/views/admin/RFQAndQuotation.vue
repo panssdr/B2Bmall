@@ -16,7 +16,7 @@
       <el-table-column prop="status" label="处理状态" width="120"> </el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template  #default="scope">
-          <el-button @click="examine(scope.row.id)" type="text" size="small">报价审核</el-button>
+          <el-button @click="examine(scope.row.id,scope.row.demandID)" type="text" size="small">报价审核</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -34,24 +34,24 @@
             <el-input v-model="form.merchantID" disabled></el-input>
           </el-form-item>
           <el-form-item label="指导价" label-width="100px"  class="item">
-            <el-input v-model="form.spec"></el-input>
+            <el-input v-model="forms.guidePrice" disabled></el-input>
           </el-form-item>
           <el-form-item label="商家报价" label-width="100px" class="item">
-            <el-input v-model="form.spec"></el-input>
+            <el-input v-model="form.quotedPrice" disabled></el-input>
           </el-form-item>
           <el-form-item label="技术分析" label-width="100px"  class="item">
-            <el-input v-model="form.address" type="textarea" ></el-input>
+            <el-input v-model="forms.analysisDescript" type="textarea" disabled></el-input>
           </el-form-item>
           <el-form-item label="报价说明" label-width="100px"  class="item">
-            <el-input v-model="form.address" type="textarea" ></el-input>
+            <el-input v-model="form.quotedDescript" type="textarea" disabled ></el-input>
           </el-form-item>
           <el-form-item label="审核说明" label-width="100px"  class="item">
-            <el-input v-model="form.address" type="textarea" ></el-input>
+            <el-input v-model="form.auditDescript" type="textarea" ></el-input>
           </el-form-item>
           <el-form-item label="审核结果" label-width="100px"  class="item">
-            <el-radio-group v-model="form.resource">
-              <el-radio label="通过"></el-radio>
-              <el-radio label="不通过"></el-radio>
+            <el-radio-group v-model="resource">
+              <el-radio label="通过" ></el-radio>
+              <el-radio label="不通过" ></el-radio>
             </el-radio-group>
           </el-form-item>
         </el-form>
@@ -59,7 +59,7 @@
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="closeDialog" type="danger">关闭</el-button>
-          <el-button type="primary" @click="save('form')">确定</el-button>
+          <el-button type="primary" @click="save(form)">确定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -68,6 +68,7 @@
 
 <script>
 import Axios from 'axios';
+import { getList } from '@/api/table';
 export default {
   name: 'RFQAndQuotation',
   data(){
@@ -75,8 +76,10 @@ export default {
       list:[{}],
       dialogFormVisible: false,
       form:{},
-       currentRow: null,
-        isClickId:""
+      currentRow: null,
+      isClickId:"",
+      forms:{},
+      resource:''
     }
   },
   methods:{
@@ -84,26 +87,50 @@ export default {
         this.currentRow = val;
         this.isClickId=this.currentRow.id
       },
-    examine(id){
-      // Axios.get("/api/demandsupply/findDemandSupplyByNumId/"+this.isClickId).then(res => this.form=res.data)
-      this.dialogFormVisible = true;
+    examine(id,demandID){
+      Axios.get("/api/demandsupply/findById/"+id).then(res => {
+        this.form=res.data
+        switch (form.status) {
+          case 0:
+            form.status = "等待商家报价";
+            break;
+          case 1:
+            form.status = "等待技术审核";
+            break;
+          case 2:
+            form.status = "审核通过";
+            break;
+         case 3:
+            form.status = "审核不通过";
+            break;
+         case 4:
+            form.status = "领导审核通过";
+            break;
+         case 5:
+           form.status = "领导审核不通过";
+            break;
+          case 6:
+            form.status = "过期";
+            break;
+        }
+      })
+      Axios.get("/api/inquirysheet/findDirectPriceById/"+demandID).then(res=> {this.forms=res.data
+    })
+     this.dialogFormVisible = true;
     },
     save(formName){
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          this.$message({
-            message: '保存成功',
-            type: 'success'
-          });
-          this.dialogFormVisible = false;
-        } else {
-          // console.log('error submit!!');
-          return false;
-        }
-      });
+      if(this.resource=="不通过"){
+        formName.status=3
+      }else if(this.resource=="通过"){
+        formName.status=2
+      }
+     Axios.post("/api/demandsupply/sendAudit",formName).then(res => {this.getList()
+      this.dialogFormVisible = false;
+     })
     },
     //关闭弹窗
     closeDialog(){
+      console.log(this.form.resource);
       this.dialogFormVisible = false;
     },
     getList(){
