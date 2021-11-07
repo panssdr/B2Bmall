@@ -35,7 +35,7 @@ module.exports = {
     proxy: {
       "/api": {
         // 这个api为自定义的字符串，相当于'/api' == 'http://192.168.123.163'
-        target: "http://192.168.123.163:8080", // 需要跨域的地址以及端口名，后面不能带/
+        target: "http://localhost:8080", // 需要跨域的地址以及端口名，后面不能带/
         changeOrigin: true, //是否跨域
         pathRewrite: {
           "^/api": "" //这里相当于用/代替target中的地址，使用时get('/api/login')

@@ -23,7 +23,7 @@
           </el-popconfirm>
           <el-button @click="send(scope.row.id)" type="text" size="small">发邮件</el-button>
 
-<!--          <el-button @click="generate(scope.row.id)" type="text" size="small">生成订单</el-button>-->
+          <el-button @click="generate(scope.row.id)" type="text" size="small">生成订单</el-button>
 <!--          <el-button @click="send(scope.row.id)" type="text" size="small">中止处理</el-button>-->
         </template>
       </el-table-column>
@@ -33,7 +33,7 @@
       <div style="width: 60%;margin: 0px auto;">
         <el-form :model="form" class="demo-form" :inline="true" label-position="left" :rules="rules" ref="form">
           <el-form-item label="需求ID" label-width="100px" class="item">
-            <el-input v-model="form.id" disabled></el-input>
+            <el-input v-model="form.demandID" disabled></el-input>
           </el-form-item>
           <el-form-item label="供应ID" label-width="100px" class="item">
             <el-input v-model="form.id" disabled></el-input>
@@ -42,7 +42,7 @@
             <el-input v-model="form.id" disabled></el-input>
           </el-form-item>
           <el-form-item label="商家ID" label-width="100px" class="item">
-            <el-input v-model="form.id" disabled></el-input>
+            <el-input v-model="form.merchantID" disabled></el-input>
           </el-form-item>
           <el-form-item label="商品名称" label-width="100px" prop="name" class="item">
             <el-input v-model="form.spec"></el-input>
@@ -152,6 +152,10 @@ export default {
     closeDialog(){
       this.dialogFormVisible = false;
     },
+    //给客户报价
+    toCustomer(){
+
+    }
   },
   created(){
     this.getList();

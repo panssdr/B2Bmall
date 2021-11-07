@@ -1,21 +1,21 @@
 <template>
   <div>
     <el-table :data="list" stripe style="width: 90%;margin: 0 auto" @row-click="getId">
-      <el-table-column prop="list.id" label="ID"> </el-table-column>
-      <el-table-column prop="id" label="需求ID"> </el-table-column>
-      <el-table-column prop="id" label="客户ID"> </el-table-column>
-      <el-table-column prop="type" label="商品名称"> </el-table-column>
+      <el-table-column prop="orderID" label="ID"> </el-table-column>
+      <el-table-column prop="demandID" label="需求ID"> </el-table-column>
+      <el-table-column prop="customerID" label="客户ID"> </el-table-column>
+      <el-table-column prop="goodsName" label="商品名称"> </el-table-column>
       <el-table-column prop="specifications" label="商品规格"> </el-table-column>
-      <el-table-column prop="priceAndAmount" label="订单描述"> </el-table-column>
-      <el-table-column prop="priceAndAmount" label="单价"> </el-table-column>
+      <el-table-column prop="descript" label="订单描述"> </el-table-column>
+      <el-table-column prop="price" label="单价"> </el-table-column>
       <el-table-column prop="amount" label="采购数量"> </el-table-column>
-      <el-table-column prop="amount" label="单位"> </el-table-column>
-      <el-table-column prop="amount" label="商家ID"> </el-table-column>
+      <el-table-column prop="unit" label="单位"> </el-table-column>
+      <el-table-column prop="merchantID" label="商家ID"> </el-table-column>
       <el-table-column prop="createDate" label="创建日期"> </el-table-column>
-      <el-table-column prop="createDate" label="订单状态"> </el-table-column>
+      <el-table-column prop="status" label="订单状态"> </el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template  #default="scope">
-          <el-button @click="build(scope.row.id)" type="text" size="small" style="color: red">创建合同</el-button>
+          <el-button @click="build(scope.row.orderID)" type="text" size="small" style="color: red">创建合同</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -24,10 +24,10 @@
       <div style="width: 80%;margin: 0px auto;">
         <el-form :model="form" class="demo-form" label-position="top" :rules="rules" ref="form">
           <el-form-item label="订单ID" label-width="100px" class="item">
-            <el-input v-model="form.id" disabled></el-input>
+            <el-input v-model="form.orderID" disabled></el-input>
           </el-form-item>
           <el-form-item label="合同说明" label-width="100px" prop="address" class="item">
-            <el-input v-model="form.address" type="textarea" :rows="3"></el-input>
+            <el-input v-model="form.descript" type="textarea" :rows="3"></el-input>
           </el-form-item>
           <el-form-item label="合同内容">
             <div id="contract">
@@ -72,7 +72,7 @@
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="closeDialog" type="danger">关闭</el-button>
-          <el-button type="primary" @click="save('form')">生成订单</el-button>
+          <el-button type="primary" @click="save('form')">创建合同</el-button>
         </span>
       </template>
     </el-dialog>
@@ -81,6 +81,7 @@
 
 <script>
 import E from 'wangeditor'
+import Axios from 'axios'
 let editor
 export default {
   name: 'BuildContract',
@@ -88,7 +89,9 @@ export default {
     return{
       list:[{}],
       dialogFormVisible:false,
-      form:{},
+      form:{
+        content:''
+      },
     }
   },
   methods:{
@@ -99,12 +102,16 @@ export default {
         editor = new E('#contract');
         editor.create();
       })
+      this.form.orderID = id;
     },
     save(formName){
       this.$refs[formName].validate((valid) => {
         if (valid) {
           //获取富文本内的html内容
-          editor.txt.html();
+          this.form.content = editor.txt.html();
+          Axios.post("/api/econtract/save",this.form).then(res => {
+
+          })
           this.$message({
             message: '保存成功',
             type: 'success'
@@ -120,6 +127,16 @@ export default {
     closeDialog(){
       this.dialogFormVisible = false;
     },
+    getList(){
+      Axios.get("/api/order/all").then(res => {
+        console.log(res.data)
+        this.list=res.data
+        // this.changeListStatus(this.list)
+      })
+    },
+  },
+  created() {
+    this.getList();
   }
 }
 </script>

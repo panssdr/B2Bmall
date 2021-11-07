@@ -334,7 +334,7 @@ export const constantRoutes = [
     name: "Home",
     component: Home,
     meta: {
-      title: "紫色鹭-首页"
+      title: " 首页"
     }
   },
   {
@@ -343,7 +343,7 @@ export const constantRoutes = [
     hidden: true,
     component: Login,
     meta: {
-      title: "紫色鹭-登陆"
+      title: " 登陆"
     }
   },
   {
@@ -353,68 +353,68 @@ export const constantRoutes = [
     hidden: true,
     component: resolve => require(["../views/UserCenter/UserCenter.vue"], resolve),
     meta: {
-      title: "紫色鹭-用户中心"
+      title: " 用户中心"
     },
     children: [
       {
         path: "MyDemand",
         component:MyDemand,
         name: "MyDemand",
-        meta: { title: "紫色鹭-我的需求列表" }
+        meta: { title: " 我的需求列表" }
       },
       {
         path: "Quote",
         component:Quote,
         name: "Quote",
-        meta: { title: "紫色鹭-报价列表" }
+        meta: { title: " 报价列表" }
       },
       {
         path: "MyOrder",
         component:MyOrder,
         name: "MyOrder",
-        meta: { title: "紫色鹭-我的订单" }
+        meta: { title: " 我的订单" }
       },
       {
         path: "Contract",
         component:Contract,
         name: "Contract",
-        meta: { title: "紫色鹭-合同列表" }
+        meta: { title: " 合同列表" }
       },
       {
         path: "PayDeposit",
         component:PayDeposit,
         name: "PayDeposit",
-        meta: { title: "紫色鹭-支付定金" }
+        meta: { title: " 支付定金" }
       },
       {
         path: "BuyerInfo",
         component:BuyerInfo,
         name: "BuyerInfo",
-        meta: { title: "紫色鹭-买家基本信息" }
+        meta: { title: " 买家基本信息" }
       },
       {
         path: "AD",
         component:AccreditationData,
         name: "AccreditationData",
-        meta: { title: "紫色鹭-认证资料" }
+        meta: { title: " 认证资料" }
       },
       {
         path: "Address",
         component:Address,
         name: "Address",
-        meta: { title: "紫色鹭-收货地址" }
+        meta: { title: " 收货地址" }
       },
       {
         path: "ChangePwd",
         component:ChangePwd,
         name: "ChangePwd",
-        meta: { title: "紫色鹭-修改密码" }
+        meta: { title: " 修改密码" }
       },
       {
         path: "Quotation",
         component:Quotation,
         name: "Quotation",
-        meta: { title: "紫色鹭-报价单列表" }
+        meta: { title: " 报价单列表" }
       },
       ]
   },
@@ -424,7 +424,7 @@ export const constantRoutes = [
     hidden: true,
     component: resolve => require(["../views/Login_Shop/Regis.vue"], resolve),
     meta: {
-      title: "紫色鹭-注册"
+      title: " 注册"
     }
   },
   {
@@ -433,7 +433,7 @@ export const constantRoutes = [
     hidden: true,
     component: resolve => require(["../views/Demand/AllDemand.vue"], resolve),
     meta: {
-      title: "紫色鹭-所有需求信息"
+      title: " 所有需求信息"
     }
   },
   {
@@ -442,7 +442,7 @@ export const constantRoutes = [
     hidden: true,
     component: resolve => require(["../views/Provide/AllProvide.vue"], resolve),
     meta: {
-      title: "紫色鹭-所有供应信息"
+      title: " 所有供应信息"
     }
   },
   {
@@ -451,7 +451,7 @@ export const constantRoutes = [
     hidden: true,
     component: resolve => require(["../views/Product/Product.vue"], resolve),
     meta: {
-      title: "紫色鹭-产品"
+      title: " 产品"
     }
   },
   {
@@ -460,7 +460,7 @@ export const constantRoutes = [
     hidden: true,
     component: resolve => require(["../views/Store/Store.vue"], resolve),
     meta: {
-      title: "紫色鹭-店铺"
+      title: " 店铺"
     }
   },
   {
@@ -469,7 +469,7 @@ export const constantRoutes = [
     hidden: true,
     component: resolve => require(["../views/Mine/Mine.vue"], resolve),
     meta: {
-      title: "紫色鹭-购物车"
+      title: " 购物车"
     }
   },
   {
@@ -478,7 +478,7 @@ export const constantRoutes = [
     hidden: true,
     component: resolve => require(["../views/Store/StoreInfo.vue"], resolve),
     meta: {
-      title: "紫色鹭-店铺"
+      title: " 店铺"
     }
   },
   {
@@ -488,7 +488,7 @@ export const constantRoutes = [
     component: resolve =>
       require(["../views/ProductDetail/ProductDetail.vue"], resolve),
     meta: {
-      title: "紫色鹭-商品详情页"
+      title: " 商品详情页"
     }
   },
   {
@@ -497,7 +497,7 @@ export const constantRoutes = [
     hidden: true,
     component: resolve => require(["../views/Mine/MyCollect.vue"], resolve),
     meta: {
-      title: "紫色鹭-店铺"
+      title: " 店铺"
     }
   },
   {
@@ -506,7 +506,7 @@ export const constantRoutes = [
     hidden: true,
     component: resolve => require(["../views/Mine/Mine.vue"], resolve),
     meta: {
-      title: "紫色鹭-个人中心"
+      title: " 个人中心"
     },
   }
 ];

@@ -240,6 +240,7 @@ export default {
       ids:allMerchantID,
       form:this.form}
     )
+      this.dialogFormVisible = false;
   },
     //关闭弹窗
     closeDialog() {
